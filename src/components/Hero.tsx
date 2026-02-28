@@ -22,17 +22,17 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
         <p className="mb-4 animate-fade-in-up text-sm font-semibold uppercase tracking-[0.2em] text-primary-foreground/80">
-          Premium Cedar Fence Builders
+          Premium Deck & Fence Builders
         </p>
         <h1 className="mb-6 font-display text-4xl font-bold leading-tight text-primary-foreground md:text-6xl lg:text-7xl" style={{ animationDelay: "0.15s", animationFillMode: "both" }}>
-          Beautiful <span className="italic">Cedar</span> Fences,{" "}
-          Built to Last
+          Transform Your{" "}
+          <span className="italic">Outdoor</span> Space
         </h1>
         <p
           className="mx-auto mb-10 max-w-2xl text-lg text-primary-foreground/80 md:text-xl animate-fade-in-up"
           style={{ animationDelay: "0.3s" }}
         >
-          We design and build custom cedar fences that elevate your
+          We design and build custom decks and fences that elevate your
           property's beauty, privacy, and value.
         </p>
         <div

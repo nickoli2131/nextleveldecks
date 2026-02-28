@@ -30,7 +30,7 @@ const Navbar = () => {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         <a href="#home" className="font-display text-2xl font-bold text-foreground">
-          Summit<span className="text-primary">Craft</span> <span className="text-sm font-body font-normal text-muted-foreground">Cedar Fences</span>
+          Summit<span className="text-primary">Craft</span>
         </a>
 
         {/* Desktop */}

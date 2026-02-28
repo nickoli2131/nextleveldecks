@@ -6,7 +6,7 @@ const Footer = () => {
           <p className="font-display text-xl font-bold text-primary-foreground">
             Summit<span className="text-primary">Craft</span>
           </p>
-          <p className="mt-1 text-sm">Premium Cedar Fence Builders</p>
+          <p className="mt-1 text-sm">Premium Deck & Fence Builders</p>
         </div>
         <div className="flex gap-8 text-sm">
           <a href="#services" className="hover:text-primary-foreground">Services</a>

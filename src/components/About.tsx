@@ -10,7 +10,7 @@ const stats = [
 const testimonials = [
   {
     name: "Mike & Sarah T.",
-    text: "SummitCraft built us an incredible cedar privacy fence. Their attention to detail and professionalism exceeded all expectations. Highly recommend!",
+    text: "SummitCraft built us an incredible two-tier deck. Their attention to detail and professionalism exceeded all expectations. Highly recommend!",
     rating: 5,
   },
   {

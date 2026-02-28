@@ -1,15 +1,17 @@
+import gallery1 from "@/assets/gallery-1.jpg";
 import gallery2 from "@/assets/gallery-2.jpg";
+import gallery3 from "@/assets/gallery-3.jpg";
+import deckShowcase from "@/assets/deck-showcase.jpg";
 import fenceShowcase from "@/assets/fence-showcase.jpg";
 import heroImage from "@/assets/hero-deck.jpg";
-import gallery1 from "@/assets/gallery-1.jpg";
-import gallery3 from "@/assets/gallery-3.jpg";
 
 const images = [
-  { src: heroImage, alt: "Cedar fence with ambient lighting at sunset", span: "md:col-span-2" },
-  { src: fenceShowcase, alt: "Horizontal cedar slat fence", span: "" },
-  { src: gallery2, alt: "White cedar privacy fence", span: "" },
-  { src: gallery1, alt: "Backyard with cedar fence and pergola", span: "" },
-  { src: gallery3, alt: "Cedar fence around outdoor living space", span: "md:col-span-2" },
+  { src: heroImage, alt: "Custom composite deck with ambient lighting", span: "md:col-span-2" },
+  { src: gallery1, alt: "Backyard renovation with pergola and deck", span: "" },
+  { src: gallery2, alt: "White vinyl privacy fence", span: "" },
+  { src: gallery3, alt: "Multi-level deck with fire pit", span: "" },
+  { src: deckShowcase, alt: "Elevated cedar deck with railings", span: "" },
+  { src: fenceShowcase, alt: "Horizontal cedar slat fence", span: "md:col-span-2" },
 ];
 
 const Gallery = () => {
