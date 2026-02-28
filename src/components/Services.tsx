@@ -14,7 +14,7 @@ const services = [
     icon: Fence,
     title: "Fencing Solutions",
     description:
-      "Privacy, security, and curb appeal — our fences are built to last with cedar, vinyl, aluminum, and more. Every style, every yard.",
+      "Privacy, security, and curb appeal — our cedar fences are built to last with natural beauty and durability. Every style, every yard.",
     image: fenceImage,
   },
 ];
