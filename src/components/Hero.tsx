@@ -25,8 +25,8 @@ const Hero = () => {
           Premium Deck & Fence Builders
         </p>
         <h1 className="mb-6 font-display text-4xl font-bold leading-tight text-primary-foreground md:text-6xl lg:text-7xl" style={{ animationDelay: "0.15s", animationFillMode: "both" }}>
-          Transform Your{" "}
-          <span className="italic">Outdoor</span> Space
+          Taking Your Backyard to the{" "}
+          <span className="italic">Next Level</span>
         </h1>
         <p
           className="mx-auto mb-10 max-w-2xl text-lg text-primary-foreground/80 md:text-xl animate-fade-in-up"
