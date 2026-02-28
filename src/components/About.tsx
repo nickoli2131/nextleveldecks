@@ -1,67 +1,36 @@
-import { Star } from "lucide-react";
+import { ShieldCheck, Clock, ThumbsUp, Hammer } from "lucide-react";
 
-const stats = [
-  { value: "500+", label: "Projects Completed" },
-  { value: "20+", label: "Years Experience" },
-  { value: "4.9", label: "Star Rating" },
-  { value: "100%", label: "Satisfaction Guarantee" },
-];
-
-const testimonials = [
-  {
-    name: "Mike & Sarah T.",
-    text: "SummitCraft built us an incredible two-tier deck. Their attention to detail and professionalism exceeded all expectations. Highly recommend!",
-    rating: 5,
-  },
-  {
-    name: "Jennifer R.",
-    text: "Our new cedar fence is absolutely gorgeous. The crew was friendly, on time, and left everything spotless. Couldn't be happier.",
-    rating: 5,
-  },
+const promises = [
+  { icon: ShieldCheck, title: "Licensed & Insured", description: "Fully licensed, bonded, and insured for your complete peace of mind." },
+  { icon: Hammer, title: "Quality Materials", description: "We use only premium lumber and hardware that's built to withstand the elements." },
+  { icon: Clock, title: "On-Time Delivery", description: "We respect your time — projects are completed on schedule, every time." },
+  { icon: ThumbsUp, title: "100% Satisfaction", description: "We don't consider the job done until you're completely happy with the result." },
 ];
 
 const About = () => {
   return (
     <section id="about" className="section-padding bg-background">
       <div className="mx-auto max-w-7xl">
-        {/* Stats */}
-        <div className="mb-20 grid grid-cols-2 gap-8 md:grid-cols-4">
-          {stats.map((stat) => (
-            <div key={stat.label} className="text-center">
-              <p className="font-display text-4xl font-bold text-primary md:text-5xl">
-                {stat.value}
-              </p>
-              <p className="mt-2 text-sm text-muted-foreground">{stat.label}</p>
-            </div>
-          ))}
-        </div>
-
-        {/* Testimonials */}
-        <div className="mb-8 text-center">
+        <div className="mb-16 text-center">
           <p className="mb-2 text-sm font-semibold uppercase tracking-[0.15em] text-secondary">
-            Testimonials
+            Why Choose Us
           </p>
           <h2 className="font-display text-3xl font-bold text-foreground md:text-5xl">
-            What Our Clients Say
+            Our Promise to You
           </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
+            Next Level Decks and Fences is built on a commitment to honest work, quality craftsmanship, and treating every backyard like our own.
+          </p>
         </div>
 
-        <div className="mt-12 grid gap-8 md:grid-cols-2">
-          {testimonials.map((t) => (
-            <div
-              key={t.name}
-              className="rounded-lg border border-border bg-card p-8 shadow-sm"
-            >
-              <div className="mb-4 flex gap-1">
-                {Array.from({ length: t.rating }).map((_, i) => (
-                  <Star
-                    key={i}
-                    className="h-5 w-5 fill-secondary text-secondary"
-                  />
-                ))}
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          {promises.map((p) => (
+            <div key={p.title} className="rounded-lg border border-border bg-card p-8 text-center shadow-sm">
+              <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-primary/10 text-primary">
+                <p.icon className="h-7 w-7" />
               </div>
-              <p className="mb-6 italic text-muted-foreground">"{t.text}"</p>
-              <p className="font-display font-bold text-foreground">{t.name}</p>
+              <h3 className="mb-2 font-display text-lg font-bold text-foreground">{p.title}</h3>
+              <p className="text-sm text-muted-foreground">{p.description}</p>
             </div>
           ))}
         </div>
