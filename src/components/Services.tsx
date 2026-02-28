@@ -1,21 +1,21 @@
-import { Fence, LayoutDashboard, Wrench, Shield } from "lucide-react";
-import deckImage from "@/assets/deck-showcase.jpg";
+import { Fence, Wrench, Shield, Ruler } from "lucide-react";
 import fenceImage from "@/assets/fence-showcase.jpg";
+import gallery2 from "@/assets/gallery-2.jpg";
 
 const services = [
   {
-    icon: LayoutDashboard,
-    title: "Custom Decks",
+    icon: Fence,
+    title: "Privacy Fences",
     description:
-      "From intimate patios to expansive multi-level decks, we craft outdoor living spaces tailored to your lifestyle using premium wood and composite materials.",
-    image: deckImage,
+      "Full privacy cedar fences built with premium boards for maximum security and a beautiful, natural look that complements any property.",
+    image: fenceImage,
   },
   {
-    icon: Fence,
-    title: "Fencing Solutions",
+    icon: Ruler,
+    title: "Custom Cedar Designs",
     description:
-      "Privacy, security, and curb appeal — our fences are built to last with cedar, vinyl, aluminum, and more. Every style, every yard.",
-    image: fenceImage,
+      "From horizontal slat to traditional picket styles, we design and build custom cedar fences tailored to your property and taste.",
+    image: gallery2,
   },
 ];
 
@@ -23,7 +23,7 @@ const features = [
   {
     icon: Wrench,
     title: "Expert Craftsmanship",
-    description: "20+ years of experience building outdoor structures that stand the test of time.",
+    description: "20+ years of experience building cedar fences that stand the test of time.",
   },
   {
     icon: Shield,
@@ -45,7 +45,6 @@ const Services = () => {
           </h2>
         </div>
 
-        {/* Main services */}
         <div className="mb-20 grid gap-10 md:grid-cols-2">
           {services.map((service) => (
             <div
@@ -75,7 +74,6 @@ const Services = () => {
           ))}
         </div>
 
-        {/* Features row */}
         <div className="grid gap-8 md:grid-cols-2">
           {features.map((f) => (
             <div key={f.title} className="flex gap-5">
