@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link, useLocation } from "react-router-dom";
 import logo from "@/assets/logo.png";
 
 const navLinks = [
@@ -45,9 +46,9 @@ const Navbar = () => {
             </a>
           ))}
           <Button asChild>
-            <a href="#contact">
-              <Phone className="mr-2 h-4 w-4" /> Get a Quote
-            </a>
+            <Link to="/schedule">
+              <Calendar className="mr-2 h-4 w-4" /> Schedule a Call
+            </Link>
           </Button>
         </div>
 
@@ -75,9 +76,9 @@ const Navbar = () => {
             </a>
           ))}
           <Button className="mt-2 w-full" asChild>
-            <a href="#contact" onClick={() => setMobileOpen(false)}>
-              <Phone className="mr-2 h-4 w-4" /> Get a Quote
-            </a>
+            <Link to="/schedule" onClick={() => setMobileOpen(false)}>
+              <Calendar className="mr-2 h-4 w-4" /> Schedule a Call
+            </Link>
           </Button>
         </div>
       )}
