@@ -1,4 +1,24 @@
-import { ShieldCheck, Clock, ThumbsUp, Hammer } from "lucide-react";
+import { ShieldCheck, Clock, ThumbsUp, Hammer, Fence, LayoutDashboard } from "lucide-react";
+import darkWoodBg from "@/assets/dark-wood-bg.jpg";
+import deckImage from "@/assets/deck-showcase.jpg";
+import fenceImage from "@/assets/fence-showcase.jpg";
+
+const services = [
+  {
+    icon: LayoutDashboard,
+    title: "Custom Decks",
+    description:
+      "From intimate patios to expansive multi-level decks, we craft outdoor living spaces tailored to your lifestyle using premium wood and composite materials.",
+    image: deckImage,
+  },
+  {
+    icon: Fence,
+    title: "Cedar Fencing",
+    description:
+      "Privacy, security, and curb appeal — our cedar fences are built to last with natural beauty and durability. Every style, every yard.",
+    image: fenceImage,
+  },
+];
 
 const promises = [
   { icon: ShieldCheck, title: "Licensed & Insured", description: "Fully licensed, bonded, and insured for your complete peace of mind." },
@@ -9,30 +29,84 @@ const promises = [
 
 const About = () => {
   return (
-    <section id="about" className="section-padding bg-background">
-      <div className="mx-auto max-w-7xl">
-        <div className="mb-16 text-center">
-          <p className="mb-2 text-sm font-semibold uppercase tracking-[0.15em] text-secondary">
-            Why Choose Us
-          </p>
-          <h2 className="font-display text-3xl font-bold text-foreground md:text-5xl">
-            Our Promise to You
-          </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-            Next Level Decks and Fences is built on a commitment to honest work, quality craftsmanship, and treating every backyard like our own.
-          </p>
+    <section id="about">
+      {/* What We Do — dark wood banner */}
+      <div className="relative py-20 md:py-28">
+        <div className="absolute inset-0">
+          <img
+            src={darkWoodBg}
+            alt=""
+            className="h-full w-full object-cover"
+            loading="lazy"
+          />
+          <div className="absolute inset-0 bg-black/40" />
         </div>
 
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {promises.map((p) => (
-            <div key={p.title} className="rounded-lg border border-border bg-card p-8 text-center shadow-sm">
-              <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-primary/10 text-primary">
-                <p.icon className="h-7 w-7" />
+        <div className="relative z-10 mx-auto max-w-7xl px-6">
+          <div className="mb-14 text-center">
+            <h2 className="font-display text-3xl font-bold text-white md:text-5xl">
+              What We Do
+            </h2>
+            <div className="mx-auto mt-4 h-0.5 w-12 bg-white/60" />
+          </div>
+
+          <div className="grid gap-10 md:grid-cols-2">
+            {services.map((service) => (
+              <div
+                key={service.title}
+                className="group overflow-hidden rounded-lg bg-white/10 backdrop-blur-sm border border-white/20 shadow-sm transition-shadow hover:shadow-lg"
+              >
+                <div className="h-64 overflow-hidden">
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="p-8">
+                  <div className="mb-4 flex items-center gap-3">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-md bg-white/20 text-white">
+                      <service.icon className="h-5 w-5" />
+                    </div>
+                    <h3 className="font-display text-2xl font-bold text-white">
+                      {service.title}
+                    </h3>
+                  </div>
+                  <p className="text-white/80">{service.description}</p>
+                </div>
               </div>
-              <h3 className="mb-2 font-display text-lg font-bold text-foreground">{p.title}</h3>
-              <p className="text-sm text-muted-foreground">{p.description}</p>
-            </div>
-          ))}
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Why Choose Us */}
+      <div className="section-padding bg-background">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-16 text-center">
+            <p className="mb-2 text-sm font-semibold uppercase tracking-[0.15em] text-secondary">
+              Why Choose Us
+            </p>
+            <h2 className="font-display text-3xl font-bold text-foreground md:text-5xl">
+              Our Promise to You
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
+              Next Level Decks and Fences is built on a commitment to honest work, quality craftsmanship, and treating every backyard like our own.
+            </p>
+          </div>
+
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            {promises.map((p) => (
+              <div key={p.title} className="rounded-lg border border-border bg-card p-8 text-center shadow-sm">
+                <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-primary/10 text-primary">
+                  <p.icon className="h-7 w-7" />
+                </div>
+                <h3 className="mb-2 font-display text-lg font-bold text-foreground">{p.title}</h3>
+                <p className="text-sm text-muted-foreground">{p.description}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
