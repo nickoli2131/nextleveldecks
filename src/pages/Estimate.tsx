@@ -13,10 +13,9 @@ type ProjectType = "deck" | "fence" | "";
 type Material = string;
 
 const DECK_MATERIALS = [
-  { value: "pressure-treated", label: "Pressure-Treated Wood", pricePerSqFt: 15 },
-  { value: "cedar", label: "Cedar", pricePerSqFt: 25 },
-  { value: "composite", label: "Composite", pricePerSqFt: 35 },
-  { value: "hardwood", label: "Hardwood (Ipe/Mahogany)", pricePerSqFt: 50 },
+  { value: "composite-value", label: "Composite – Value", pricePerSqFt: 25 },
+  { value: "composite-premium", label: "Composite – Premium", pricePerSqFt: 35 },
+  { value: "composite-luxury", label: "Composite – Luxury", pricePerSqFt: 50 },
 ];
 
 const FENCE_MATERIALS = [
