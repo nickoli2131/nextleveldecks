@@ -31,6 +31,13 @@ const FENCE_HEIGHTS = [
   { value: "8", label: "8 ft", multiplier: 1.3 },
 ];
 
+const DECK_HEIGHTS = [
+  { value: "below-3", label: "Below 3'", multiplier: 1.0 },
+  { value: "3-6", label: "3' – 6'", multiplier: 1.3 },
+  { value: "6-10", label: "6' – 10'", multiplier: 1.6 },
+  { value: "10-plus", label: "10'+", multiplier: 2.0 },
+];
+
 const Estimate = () => {
   const [step, setStep] = useState(1);
   const [projectType, setProjectType] = useState<ProjectType>("");
@@ -38,6 +45,7 @@ const Estimate = () => {
   const [length, setLength] = useState("");
   const [width, setWidth] = useState("");
   const [fenceHeight, setFenceHeight] = useState("6");
+  const [deckHeight, setDeckHeight] = useState("below-3");
   const [showEstimate, setShowEstimate] = useState(false);
 
   const calculateEstimate = () => {
@@ -47,8 +55,9 @@ const Estimate = () => {
     if (projectType === "deck") {
       const sqFt = l * w;
       const mat = DECK_MATERIALS.find((m) => m.value === material);
-      if (!mat || sqFt === 0) return { low: 0, high: 0, unit: "sq ft", size: 0 };
-      const base = sqFt * mat.pricePerSqFt;
+      const dh = DECK_HEIGHTS.find((h) => h.value === deckHeight);
+      if (!mat || !dh || sqFt === 0) return { low: 0, high: 0, unit: "sq ft", size: 0 };
+      const base = sqFt * mat.pricePerSqFt * dh.multiplier;
       return { low: Math.round(base * 0.85), high: Math.round(base * 1.25), unit: "sq ft", size: sqFt };
     }
 
@@ -81,6 +90,7 @@ const Estimate = () => {
     setLength("");
     setWidth("");
     setFenceHeight("6");
+    setDeckHeight("below-3");
     setShowEstimate(false);
   };
 
@@ -268,6 +278,32 @@ const Estimate = () => {
                         </div>
                       )}
 
+                      {projectType === "deck" && (
+                        <div>
+                          <Label className="mb-1.5 block text-sm">Deck Height</Label>
+                          <RadioGroup
+                            value={deckHeight}
+                            onValueChange={setDeckHeight}
+                            className="grid grid-cols-2 gap-3"
+                          >
+                            {DECK_HEIGHTS.map((h) => (
+                              <Label
+                                key={h.value}
+                                htmlFor={`dh-${h.value}`}
+                                className={`flex cursor-pointer items-center justify-center rounded-lg border-2 py-3 text-sm font-medium transition-colors ${
+                                  deckHeight === h.value
+                                    ? "border-primary bg-primary/5 text-foreground"
+                                    : "border-border text-muted-foreground hover:border-primary/40"
+                                }`}
+                              >
+                                <RadioGroupItem value={h.value} id={`dh-${h.value}`} className="sr-only" />
+                                {h.label}
+                              </Label>
+                            ))}
+                          </RadioGroup>
+                        </div>
+                      )}
+
                       {projectType === "fence" && (
                         <div>
                           <Label className="mb-1.5 block text-sm">Fence Height</Label>
@@ -336,6 +372,7 @@ const Estimate = () => {
                   <p>
                     <span className="font-medium text-foreground">Size:</span>{" "}
                     {estimate.size} {estimate.unit}
+                    {projectType === "deck" && ` × ${DECK_HEIGHTS.find(h => h.value === deckHeight)?.label} tall`}
                     {projectType === "fence" && ` × ${fenceHeight} ft tall`}
                   </p>
                 </div>
