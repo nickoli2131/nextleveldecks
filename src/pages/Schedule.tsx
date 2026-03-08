@@ -1,10 +1,11 @@
+import { useEffect } from "react";
 import { ArrowLeft, Calendar, Phone, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-const CALENDLY_URL = "https://calendly.com/nick-nextlevel-decks?background_color=090000&text_color=ffffff";
+const CALENDLY_URL = "https://calendly.com/nick-nextlevel-decks?text_color=000000";
 
 const Schedule = () => {
   return (
