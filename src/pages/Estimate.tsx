@@ -12,10 +12,12 @@ import Footer from "@/components/Footer";
 type ProjectType = "deck" | "fence" | "";
 type Material = string;
 
+const FRAMING_PER_SQFT = 50;
+
 const DECK_MATERIALS = [
-  { value: "composite-value", label: "Composite – Value", pricePerSqFt: 25 },
-  { value: "composite-premium", label: "Composite – Premium", pricePerSqFt: 35 },
-  { value: "composite-luxury", label: "Composite – Luxury", pricePerSqFt: 50 },
+  { value: "composite-value", label: "Composite – Value", deckingLow: 24, deckingHigh: 28, railingLow: 110, railingHigh: 130 },
+  { value: "composite-premium", label: "Composite – Premium", deckingLow: 30, deckingHigh: 36, railingLow: 140, railingHigh: 165 },
+  { value: "composite-luxury", label: "Composite – Luxury", deckingLow: 38, deckingHigh: 42, railingLow: 170, railingHigh: 195 },
 ];
 
 const FENCE_MATERIALS = [
