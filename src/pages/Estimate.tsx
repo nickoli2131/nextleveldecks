@@ -57,6 +57,10 @@ const Estimate = () => {
   const [fenceHeight, setFenceHeight] = useState("6");
   const [deckHeight, setDeckHeight] = useState("below-3");
   const [showEstimate, setShowEstimate] = useState(false);
+  const [needsRemoval, setNeedsRemoval] = useState("no");
+  const [postType, setPostType] = useState("wood");
+  const [smallGates, setSmallGates] = useState("0");
+  const [largeGates, setLargeGates] = useState("0");
 
   const calculateEstimate = () => {
     const l = parseFloat(length) || 0;
