@@ -33,20 +33,24 @@ const Hero = () => {
       className="relative flex min-h-screen items-center justify-center overflow-hidden"
     >
       {/* Background image montage */}
-      {slides.map((slide, i) => (
-        <div
-          key={i}
-          className="absolute inset-0 transition-opacity duration-[3000ms] ease-in-out"
-          style={{ opacity: i === current ? 1 : 0 }}
-        >
-          <img
-            src={slide.src}
-            alt={slide.alt}
-            className="h-full w-full object-cover"
-            loading={i === 0 ? "eager" : "lazy"}
-          />
-        </div>
-      ))}
+      <div 
+        className="absolute inset-0 flex transition-transform duration-1000 ease-in-out"
+        style={{ transform: `translateX(-${current * 100}%)` }}
+      >
+        {slides.map((slide, i) => (
+          <div
+            key={i}
+            className="relative h-full w-full shrink-0"
+          >
+            <img
+              src={slide.src}
+              alt={slide.alt}
+              className="h-full w-full object-cover"
+              loading={i === 0 ? "eager" : "lazy"}
+            />
+          </div>
+        ))}
+      </div>
       <div className="absolute inset-0 bg-foreground/60" />
 
       {/* Slide indicators */}
