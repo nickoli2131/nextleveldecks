@@ -16,13 +16,13 @@ const images = [
 
 const Gallery = () => {
   return (
-    <section id="gallery" className="section-padding bg-muted/50">
+    <section id="gallery" className="section-padding bg-[hsl(25,20%,10%)]">
       <div className="mx-auto max-w-7xl">
         <div className="mb-16 text-center">
           <p className="mb-2 text-sm font-semibold uppercase tracking-[0.15em] text-secondary">
             Our Portfolio
           </p>
-          <h2 className="font-display text-3xl font-bold text-foreground md:text-5xl">
+          <h2 className="font-display text-3xl font-bold text-white md:text-5xl">
             Recent Projects
           </h2>
         </div>
