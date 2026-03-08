@@ -16,7 +16,7 @@ const images = [
 
 const Gallery = () => {
   return (
-    <section id="gallery" className="section-padding bg-muted/50">
+    <section id="gallery" className="section-padding bg-background">
       <div className="mx-auto max-w-7xl">
         <div className="mb-16 text-center">
           <p className="mb-2 text-sm font-semibold uppercase tracking-[0.15em] text-secondary">
