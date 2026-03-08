@@ -91,7 +91,12 @@ const Estimate = () => {
     const ht = FENCE_HEIGHTS.find((h) => h.value === fenceHeight);
     if (!mat || !ht || linFt === 0) return { low: 0, high: 0, unit: "lin ft", size: 0 };
     const base = linFt * mat.pricePerLinFt * ht.multiplier;
-    return { low: Math.round(base * 0.85), high: Math.round(base * 1.25), unit: "linear ft", size: linFt };
+    const removalCost = needsRemoval === "yes" ? linFt * FENCE_REMOVAL_PER_LF : 0;
+    const postCount = Math.ceil(linFt / 8);
+    const postCost = postType === "metal" ? postCount * METAL_POST_COST : postCount * WOOD_POST_COST;
+    const gateCost = (parseInt(smallGates) || 0) * SMALL_GATE_COST + (parseInt(largeGates) || 0) * LARGE_GATE_COST;
+    const total = base + removalCost + postCost + gateCost;
+    return { low: Math.round(total * 0.85), high: Math.round(total * 1.25), unit: "linear ft", size: linFt };
   };
 
   const estimate = calculateEstimate();
