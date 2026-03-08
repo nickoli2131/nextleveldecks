@@ -622,10 +622,10 @@ const Estimate = () => {
                     <Button
                       className="w-full"
                       size="lg"
-                      disabled={!contactEmail}
+                      disabled={projectPhase === "ready" ? false : !contactEmail}
                       onClick={handleLeadSubmit}
                     >
-                      Send Me My Estimate
+                      {projectPhase === "ready" ? "Schedule a Call" : "Send Me My Estimate"}
                     </Button>
                   </div>
                 ) : (
