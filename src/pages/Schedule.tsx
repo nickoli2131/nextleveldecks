@@ -7,6 +7,28 @@ import Footer from "@/components/Footer";
 
 const CALENDLY_URL = "https://calendly.com/nick-nextlevel-decks?text_color=000000";
 
+const CalendlyEmbed = ({ url }: { url: string }) => {
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://assets.calendly.com/assets/external/widget.js";
+    script.async = true;
+    document.body.appendChild(script);
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
+  return (
+    <div className="overflow-hidden rounded-lg border border-border bg-card shadow-sm">
+      <div
+        className="calendly-inline-widget"
+        data-url={url}
+        style={{ minWidth: "320px", height: "700px" }}
+      />
+    </div>
+  );
+};
+
 const Schedule = () => {
   return (
     <div className="min-h-screen">
