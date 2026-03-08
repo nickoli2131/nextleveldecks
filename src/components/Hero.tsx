@@ -36,7 +36,7 @@ const Hero = () => {
       {slides.map((slide, i) => (
         <div
           key={i}
-          className="absolute inset-0 transition-opacity duration-[1500ms] ease-in-out"
+          className="group absolute inset-0 transition-opacity duration-[1500ms] ease-in-out"
           style={{ opacity: i === current ? 1 : 0 }}
         >
           <img
