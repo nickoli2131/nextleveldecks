@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ArrowLeft, Calculator, Ruler, Fence, LayoutDashboard, Trees, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -150,6 +150,8 @@ const Estimate = () => {
     projectType === "deck"
       ? DECK_MATERIALS.find((m) => m.value === material)?.label
       : FENCE_MATERIALS.find((m) => m.value === material)?.label;
+
+  useEffect(() => { window.scrollTo(0, 0); }, []);
 
   return (
     <div className="min-h-screen bg-background">
