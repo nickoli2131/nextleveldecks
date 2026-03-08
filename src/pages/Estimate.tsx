@@ -271,7 +271,14 @@ const Estimate = () => {
                             min="1"
                             placeholder={projectType === "deck" ? "e.g. 20" : "e.g. 150"}
                             value={length}
-                            onChange={(e) => setLength(e.target.value)}
+                            onChange={(e) => {
+                              setLength(e.target.value);
+                              if (projectType === "deck" && railingAutoCalc) {
+                                const l = parseFloat(e.target.value) || 0;
+                                const w = parseFloat(width) || 0;
+                                if (l > 0 && w > 0) setRailingLf(String(Math.round(2 * l + 2 * w - w)));
+                              }
+                            }}
                             className="pl-10"
                           />
                         </div>
@@ -290,7 +297,38 @@ const Estimate = () => {
                               min="1"
                               placeholder="e.g. 14"
                               value={width}
-                              onChange={(e) => setWidth(e.target.value)}
+                              onChange={(e) => {
+                                setWidth(e.target.value);
+                                if (railingAutoCalc) {
+                                  const l = parseFloat(length) || 0;
+                                  const w = parseFloat(e.target.value) || 0;
+                                  if (l > 0 && w > 0) setRailingLf(String(Math.round(2 * l + 2 * w - w)));
+                                }
+                              }}
+                              className="pl-10"
+                            />
+                          </div>
+                        </div>
+                      )}
+
+                      {projectType === "deck" && (
+                        <div>
+                          <Label htmlFor="railing" className="mb-1.5 block text-sm">
+                            Railing (linear ft){" "}
+                            <span className="text-xs text-muted-foreground">— auto-calculated from perimeter</span>
+                          </Label>
+                          <div className="relative">
+                            <Ruler className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+                            <Input
+                              id="railing"
+                              type="number"
+                              min="0"
+                              placeholder="e.g. 50"
+                              value={railingLf}
+                              onChange={(e) => {
+                                setRailingLf(e.target.value);
+                                setRailingAutoCalc(false);
+                              }}
                               className="pl-10"
                             />
                           </div>
