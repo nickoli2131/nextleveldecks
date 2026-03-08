@@ -113,8 +113,14 @@ const Estimate = () => {
     if (canCalculate) setShowEstimate(true);
   };
 
+  const navigate = useNavigate();
+
   const handleLeadSubmit = () => {
-    if (contactEmail || contactPhone) {
+    if (projectPhase === "ready") {
+      navigate("/schedule");
+      return;
+    }
+    if (contactEmail) {
       setLeadSubmitted(true);
     }
   };
