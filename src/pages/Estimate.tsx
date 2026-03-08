@@ -22,9 +22,6 @@ const DECK_MATERIALS = [
 
 const FENCE_MATERIALS = [
   { value: "cedar-fence", label: "Cedar", pricePerLinFt: 30 },
-  { value: "pressure-treated-fence", label: "Pressure-Treated Wood", pricePerLinFt: 20 },
-  { value: "vinyl", label: "Vinyl", pricePerLinFt: 35 },
-  { value: "wrought-iron", label: "Wrought Iron", pricePerLinFt: 45 },
 ];
 
 const FENCE_HEIGHTS = [
