@@ -44,7 +44,7 @@ const Hero = () => {
               Get Your Free Estimate <ArrowRight className="ml-2 h-4 w-4" />
             </a>
           </Button>
-          <Button size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10" asChild>
+          <Button size="lg" className="bg-foreground text-background hover:bg-foreground/90" asChild>
             <a href="#gallery">View Our Work</a>
           </Button>
         </div>
