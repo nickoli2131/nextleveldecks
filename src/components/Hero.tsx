@@ -43,7 +43,7 @@ const Hero = () => {
             src={slide.src}
             alt={slide.alt}
             className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-            style={i === current ? { animation: 'ken-burns 8s ease-in-out forwards' } : undefined}
+            style={i === current ? { animation: 'ken-burns 12s ease-in-out forwards' } : undefined}
             loading={i === 0 ? "eager" : "lazy"}
           />
         </div>
