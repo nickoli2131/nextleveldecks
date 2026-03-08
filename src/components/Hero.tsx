@@ -36,14 +36,13 @@ const Hero = () => {
       {slides.map((slide, i) => (
         <div
           key={i}
-          className="group absolute inset-0 transition-opacity duration-[2500ms] ease-in-out"
+          className="absolute inset-0 transition-opacity duration-[3000ms] ease-in-out"
           style={{ opacity: i === current ? 1 : 0 }}
         >
           <img
             src={slide.src}
             alt={slide.alt}
-            className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-            style={i === current ? { animation: 'ken-burns 12s ease-in-out forwards' } : undefined}
+            className="h-full w-full object-cover"
             loading={i === 0 ? "eager" : "lazy"}
           />
         </div>
