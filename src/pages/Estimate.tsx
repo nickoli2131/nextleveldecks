@@ -12,10 +12,12 @@ import Footer from "@/components/Footer";
 type ProjectType = "deck" | "fence" | "";
 type Material = string;
 
+const FRAMING_PER_SQFT = 50;
+
 const DECK_MATERIALS = [
-  { value: "composite-value", label: "Composite – Value", pricePerSqFt: 25 },
-  { value: "composite-premium", label: "Composite – Premium", pricePerSqFt: 35 },
-  { value: "composite-luxury", label: "Composite – Luxury", pricePerSqFt: 50 },
+  { value: "composite-value", label: "Composite – Value", deckingLow: 24, deckingHigh: 28, railingLow: 110, railingHigh: 130 },
+  { value: "composite-premium", label: "Composite – Premium", deckingLow: 30, deckingHigh: 36, railingLow: 140, railingHigh: 165 },
+  { value: "composite-luxury", label: "Composite – Luxury", deckingLow: 38, deckingHigh: 42, railingLow: 170, railingHigh: 195 },
 ];
 
 const FENCE_MATERIALS = [
@@ -44,6 +46,8 @@ const Estimate = () => {
   const [material, setMaterial] = useState<Material>("");
   const [length, setLength] = useState("");
   const [width, setWidth] = useState("");
+  const [railingLf, setRailingLf] = useState("");
+  const [railingAutoCalc, setRailingAutoCalc] = useState(true);
   const [fenceHeight, setFenceHeight] = useState("6");
   const [deckHeight, setDeckHeight] = useState("below-3");
   const [showEstimate, setShowEstimate] = useState(false);
@@ -56,9 +60,19 @@ const Estimate = () => {
       const sqFt = l * w;
       const mat = DECK_MATERIALS.find((m) => m.value === material);
       const dh = DECK_HEIGHTS.find((h) => h.value === deckHeight);
-      if (!mat || !dh || sqFt === 0) return { low: 0, high: 0, unit: "sq ft", size: 0 };
-      const base = sqFt * mat.pricePerSqFt * dh.multiplier;
-      return { low: Math.round(base * 0.85), high: Math.round(base * 1.25), unit: "sq ft", size: sqFt };
+      const rlf = parseFloat(railingLf) || 0;
+      if (!mat || !dh || sqFt === 0) return { low: 0, high: 0, unit: "sq ft", size: sqFt };
+      const framingCost = sqFt * FRAMING_PER_SQFT * dh.multiplier;
+      const deckingLow = sqFt * mat.deckingLow;
+      const deckingHigh = sqFt * mat.deckingHigh;
+      const railLow = rlf * mat.railingLow;
+      const railHigh = rlf * mat.railingHigh;
+      return {
+        low: Math.round(framingCost + deckingLow + railLow),
+        high: Math.round(framingCost + deckingHigh + railHigh),
+        unit: "sq ft",
+        size: sqFt,
+      };
     }
 
     // fence
@@ -89,9 +103,12 @@ const Estimate = () => {
     setMaterial("");
     setLength("");
     setWidth("");
+    setRailingLf("");
+    setRailingAutoCalc(true);
     setFenceHeight("6");
     setDeckHeight("below-3");
     setShowEstimate(false);
+  };
   };
 
   const materialLabel =
@@ -219,7 +236,9 @@ const Estimate = () => {
                               <span className="font-medium text-foreground">{mat.label}</span>
                             </div>
                             <span className="text-sm text-muted-foreground">
-                              ~${"pricePerSqFt" in mat ? `${mat.pricePerSqFt}/sq ft` : `${(mat as any).pricePerLinFt}/lin ft`}
+                              {"deckingLow" in mat
+                                ? `$${mat.deckingLow}–$${mat.deckingHigh}/sq ft`
+                                : `$${(mat as any).pricePerLinFt}/lin ft`}
                             </span>
                           </Label>
                         )
@@ -252,7 +271,14 @@ const Estimate = () => {
                             min="1"
                             placeholder={projectType === "deck" ? "e.g. 20" : "e.g. 150"}
                             value={length}
-                            onChange={(e) => setLength(e.target.value)}
+                            onChange={(e) => {
+                              setLength(e.target.value);
+                              if (projectType === "deck" && railingAutoCalc) {
+                                const l = parseFloat(e.target.value) || 0;
+                                const w = parseFloat(width) || 0;
+                                if (l > 0 && w > 0) setRailingLf(String(Math.round(2 * l + 2 * w - w)));
+                              }
+                            }}
                             className="pl-10"
                           />
                         </div>
@@ -271,7 +297,38 @@ const Estimate = () => {
                               min="1"
                               placeholder="e.g. 14"
                               value={width}
-                              onChange={(e) => setWidth(e.target.value)}
+                              onChange={(e) => {
+                                setWidth(e.target.value);
+                                if (railingAutoCalc) {
+                                  const l = parseFloat(length) || 0;
+                                  const w = parseFloat(e.target.value) || 0;
+                                  if (l > 0 && w > 0) setRailingLf(String(Math.round(2 * l + 2 * w - w)));
+                                }
+                              }}
+                              className="pl-10"
+                            />
+                          </div>
+                        </div>
+                      )}
+
+                      {projectType === "deck" && (
+                        <div>
+                          <Label htmlFor="railing" className="mb-1.5 block text-sm">
+                            Railing (linear ft){" "}
+                            <span className="text-xs text-muted-foreground">— auto-calculated from perimeter</span>
+                          </Label>
+                          <div className="relative">
+                            <Ruler className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+                            <Input
+                              id="railing"
+                              type="number"
+                              min="0"
+                              placeholder="e.g. 50"
+                              value={railingLf}
+                              onChange={(e) => {
+                                setRailingLf(e.target.value);
+                                setRailingAutoCalc(false);
+                              }}
                               className="pl-10"
                             />
                           </div>
