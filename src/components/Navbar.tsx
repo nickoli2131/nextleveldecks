@@ -46,7 +46,7 @@ const Navbar = () => {
               <Link
                 key={link.href}
                 to={link.href}
-                className="text-base font-semibold text-foreground transition-colors hover:text-primary"
+                className={linkClass}
               >
                 {link.label}
               </Link>
@@ -54,7 +54,7 @@ const Navbar = () => {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-base font-semibold text-foreground transition-colors hover:text-primary"
+                className={linkClass}
               >
                 {link.label}
               </a>
@@ -69,7 +69,7 @@ const Navbar = () => {
 
         {/* Mobile toggle */}
         <button
-          className="text-foreground md:hidden"
+          className={`md:hidden ${scrolled ? "text-foreground" : "text-white"}`}
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
         >
