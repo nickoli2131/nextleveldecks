@@ -46,6 +46,8 @@ const Estimate = () => {
   const [material, setMaterial] = useState<Material>("");
   const [length, setLength] = useState("");
   const [width, setWidth] = useState("");
+  const [railingLf, setRailingLf] = useState("");
+  const [railingAutoCalc, setRailingAutoCalc] = useState(true);
   const [fenceHeight, setFenceHeight] = useState("6");
   const [deckHeight, setDeckHeight] = useState("below-3");
   const [showEstimate, setShowEstimate] = useState(false);
