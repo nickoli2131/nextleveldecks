@@ -236,7 +236,9 @@ const Estimate = () => {
                               <span className="font-medium text-foreground">{mat.label}</span>
                             </div>
                             <span className="text-sm text-muted-foreground">
-                              ~${"pricePerSqFt" in mat ? `${mat.pricePerSqFt}/sq ft` : `${(mat as any).pricePerLinFt}/lin ft`}
+                              {"deckingLow" in mat
+                                ? `$${mat.deckingLow}–$${mat.deckingHigh}/sq ft`
+                                : `$${(mat as any).pricePerLinFt}/lin ft`}
                             </span>
                           </Label>
                         )
