@@ -42,10 +42,7 @@ const Hero = () => {
           <img
             src={slide.src}
             alt={slide.alt}
-            className="h-full w-full object-cover scale-105"
-            style={{
-              animation: i === current ? "ken-burns 8s ease-in-out forwards" : "none",
-            }}
+            className="h-full w-full object-cover"
             loading={i === 0 ? "eager" : "lazy"}
           />
         </div>
