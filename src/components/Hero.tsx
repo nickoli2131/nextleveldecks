@@ -42,7 +42,7 @@ const Hero = () => {
           <img
             src={slide.src}
             alt={slide.alt}
-            className="h-full w-full object-cover"
+            className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
             loading={i === 0 ? "eager" : "lazy"}
           />
         </div>
