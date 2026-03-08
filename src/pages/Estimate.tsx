@@ -151,6 +151,8 @@ const Estimate = () => {
       ? DECK_MATERIALS.find((m) => m.value === material)?.label
       : FENCE_MATERIALS.find((m) => m.value === material)?.label;
 
+  useEffect(() => { window.scrollTo(0, 0); }, []);
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
