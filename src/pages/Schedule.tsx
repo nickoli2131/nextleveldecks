@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-const CALENDLY_URL = ""; // Paste your Calendly link here
+const CALENDLY_URL = "https://calendly.com/nick-nextlevel-decks?background_color=090000&text_color=ffffff";
 
 const Schedule = () => {
   return (
