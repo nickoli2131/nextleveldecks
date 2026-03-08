@@ -58,6 +58,10 @@ const Estimate = () => {
   const [postType, setPostType] = useState("wood");
   const [smallGates, setSmallGates] = useState("0");
   const [largeGates, setLargeGates] = useState("0");
+  const [contactEmail, setContactEmail] = useState("");
+  const [contactPhone, setContactPhone] = useState("");
+  const [projectPhase, setProjectPhase] = useState("");
+  const [leadSubmitted, setLeadSubmitted] = useState(false);
 
   const calculateEstimate = () => {
     const l = parseFloat(length) || 0;
@@ -109,6 +113,12 @@ const Estimate = () => {
     if (canCalculate) setShowEstimate(true);
   };
 
+  const handleLeadSubmit = () => {
+    if (contactEmail || contactPhone) {
+      setLeadSubmitted(true);
+    }
+  };
+
   const resetCalculator = () => {
     setStep(1);
     setProjectType("");
@@ -124,6 +134,10 @@ const Estimate = () => {
     setPostType("wood");
     setSmallGates("0");
     setLargeGates("0");
+    setContactEmail("");
+    setContactPhone("");
+    setProjectPhase("");
+    setLeadSubmitted(false);
   };
 
   const materialLabel =
@@ -540,6 +554,95 @@ const Estimate = () => {
                   * This is a rough estimate. Final pricing depends on site conditions,
                   permits, and design complexity. Contact us for an accurate quote.
                 </p>
+
+                {/* Lead capture form */}
+                {!leadSubmitted ? (
+                  <div className="mx-auto max-w-sm space-y-4 rounded-lg border border-border bg-muted/30 p-6 text-left">
+                    <div className="text-center">
+                      <p className="font-display text-lg font-semibold text-foreground">
+                        Want a more accurate quote?
+                      </p>
+                      <p className="mt-1 text-sm text-muted-foreground">
+                        Leave your info and we'll follow up with you.
+                      </p>
+                    </div>
+
+                    <div>
+                      <Label htmlFor="contact-email" className="mb-1.5 block text-sm">
+                        Email
+                      </Label>
+                      <Input
+                        id="contact-email"
+                        type="email"
+                        placeholder="you@example.com"
+                        value={contactEmail}
+                        onChange={(e) => setContactEmail(e.target.value)}
+                      />
+                    </div>
+
+                    <div>
+                      <Label htmlFor="contact-phone" className="mb-1.5 block text-sm">
+                        Phone
+                      </Label>
+                      <Input
+                        id="contact-phone"
+                        type="tel"
+                        placeholder="(555) 123-4567"
+                        value={contactPhone}
+                        onChange={(e) => setContactPhone(e.target.value)}
+                      />
+                    </div>
+
+                    <div>
+                      <Label className="mb-1.5 block text-sm">Where are you in the process?</Label>
+                      <RadioGroup
+                        value={projectPhase}
+                        onValueChange={setProjectPhase}
+                        className="space-y-2"
+                      >
+                        {[
+                          { value: "dreaming", label: "🌟 Just dreaming", desc: "Exploring ideas" },
+                          { value: "planning", label: "📋 Planning", desc: "Getting serious, comparing options" },
+                          { value: "ready", label: "📞 Ready to schedule / call", desc: "Let's get started!" },
+                        ].map((opt) => (
+                          <Label
+                            key={opt.value}
+                            htmlFor={`phase-${opt.value}`}
+                            className={`flex cursor-pointer items-center gap-3 rounded-lg border-2 px-4 py-3 transition-colors ${
+                              projectPhase === opt.value
+                                ? "border-primary bg-primary/5"
+                                : "border-border hover:border-primary/40"
+                            }`}
+                          >
+                            <RadioGroupItem value={opt.value} id={`phase-${opt.value}`} className="sr-only" />
+                            <div>
+                              <span className="text-sm font-medium text-foreground">{opt.label}</span>
+                              <span className="ml-2 text-xs text-muted-foreground">{opt.desc}</span>
+                            </div>
+                          </Label>
+                        ))}
+                      </RadioGroup>
+                    </div>
+
+                    <Button
+                      className="w-full"
+                      size="lg"
+                      disabled={!contactEmail && !contactPhone}
+                      onClick={handleLeadSubmit}
+                    >
+                      Submit
+                    </Button>
+                  </div>
+                ) : (
+                  <div className="mx-auto max-w-sm rounded-lg border border-primary/20 bg-primary/5 p-6 text-center">
+                    <p className="font-display text-lg font-semibold text-foreground">
+                      Thanks! We'll be in touch soon 🙌
+                    </p>
+                    <p className="mt-1 text-sm text-muted-foreground">
+                      We'll reach out to discuss your project.
+                    </p>
+                  </div>
+                )}
 
                 <div className="flex flex-col gap-3 sm:flex-row">
                   <Button variant="outline" className="flex-1" onClick={resetCalculator}>
