@@ -1,10 +1,33 @@
+import { useEffect } from "react";
 import { ArrowLeft, Calendar, Phone, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-const CALENDLY_URL = "https://calendly.com/nick-nextlevel-decks?background_color=090000&text_color=ffffff";
+const CALENDLY_URL = "https://calendly.com/nick-nextlevel-decks?text_color=000000";
+
+const CalendlyEmbed = ({ url }: { url: string }) => {
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://assets.calendly.com/assets/external/widget.js";
+    script.async = true;
+    document.body.appendChild(script);
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
+  return (
+    <div className="overflow-hidden rounded-lg border border-border bg-card shadow-sm">
+      <div
+        className="calendly-inline-widget"
+        data-url={url}
+        style={{ minWidth: "320px", height: "700px" }}
+      />
+    </div>
+  );
+};
 
 const Schedule = () => {
   return (
@@ -70,14 +93,7 @@ const Schedule = () => {
 
           {/* Calendly embed area */}
           {CALENDLY_URL ? (
-            <div className="overflow-hidden rounded-lg border border-border bg-card shadow-sm">
-              <iframe
-                src={CALENDLY_URL}
-                title="Schedule a call"
-                className="h-[700px] w-full border-0"
-                loading="lazy"
-              />
-            </div>
+            <CalendlyEmbed url={CALENDLY_URL} />
           ) : (
             <div className="flex flex-col items-center justify-center rounded-lg border-2 border-dashed border-border bg-card p-16 text-center">
               <Calendar className="mb-4 h-16 w-16 text-muted-foreground/40" />
