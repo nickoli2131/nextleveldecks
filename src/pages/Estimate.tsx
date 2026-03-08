@@ -404,6 +404,93 @@ const Estimate = () => {
                           </RadioGroup>
                         </div>
                       )}
+
+                      {projectType === "fence" && (
+                        <div>
+                          <Label className="mb-1.5 block text-sm">Old fence removal needed?</Label>
+                          <RadioGroup
+                            value={needsRemoval}
+                            onValueChange={setNeedsRemoval}
+                            className="flex gap-3"
+                          >
+                            {[
+                              { value: "no", label: "No" },
+                              { value: "yes", label: "Yes (+$12.50/lf)" },
+                            ].map((opt) => (
+                              <Label
+                                key={opt.value}
+                                htmlFor={`rem-${opt.value}`}
+                                className={`flex flex-1 cursor-pointer items-center justify-center rounded-lg border-2 py-3 text-sm font-medium transition-colors ${
+                                  needsRemoval === opt.value
+                                    ? "border-primary bg-primary/5 text-foreground"
+                                    : "border-border text-muted-foreground hover:border-primary/40"
+                                }`}
+                              >
+                                <RadioGroupItem value={opt.value} id={`rem-${opt.value}`} className="sr-only" />
+                                {opt.label}
+                              </Label>
+                            ))}
+                          </RadioGroup>
+                        </div>
+                      )}
+
+                      {projectType === "fence" && (
+                        <div>
+                          <Label className="mb-1.5 block text-sm">Post type</Label>
+                          <RadioGroup
+                            value={postType}
+                            onValueChange={setPostType}
+                            className="flex gap-3"
+                          >
+                            {[
+                              { value: "wood", label: "Wood ($42/post)" },
+                              { value: "metal", label: "Metal ($80/post)" },
+                            ].map((opt) => (
+                              <Label
+                                key={opt.value}
+                                htmlFor={`post-${opt.value}`}
+                                className={`flex flex-1 cursor-pointer items-center justify-center rounded-lg border-2 py-3 text-sm font-medium transition-colors ${
+                                  postType === opt.value
+                                    ? "border-primary bg-primary/5 text-foreground"
+                                    : "border-border text-muted-foreground hover:border-primary/40"
+                                }`}
+                              >
+                                <RadioGroupItem value={opt.value} id={`post-${opt.value}`} className="sr-only" />
+                                {opt.label}
+                              </Label>
+                            ))}
+                          </RadioGroup>
+                        </div>
+                      )}
+
+                      {projectType === "fence" && (
+                        <div className="grid grid-cols-2 gap-4">
+                          <div>
+                            <Label htmlFor="small-gates" className="mb-1.5 block text-sm">
+                              3'–5' Gates ($640 ea)
+                            </Label>
+                            <Input
+                              id="small-gates"
+                              type="number"
+                              min="0"
+                              value={smallGates}
+                              onChange={(e) => setSmallGates(e.target.value)}
+                            />
+                          </div>
+                          <div>
+                            <Label htmlFor="large-gates" className="mb-1.5 block text-sm">
+                              5'–8' Gates ($720 ea)
+                            </Label>
+                            <Input
+                              id="large-gates"
+                              type="number"
+                              min="0"
+                              value={largeGates}
+                              onChange={(e) => setLargeGates(e.target.value)}
+                            />
+                          </div>
+                        </div>
+                      )}
                     </div>
 
                     <div className="flex gap-3">
