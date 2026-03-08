@@ -6,12 +6,12 @@ import fenceShowcase from "@/assets/fence-showcase.jpg";
 import heroImage from "@/assets/hero-deck.jpg";
 
 const images = [
-  { src: heroImage, alt: "Custom composite deck with ambient lighting", span: "md:col-span-2" },
-  { src: gallery1, alt: "Backyard renovation with pergola and deck", span: "" },
-  { src: gallery2, alt: "White vinyl privacy fence", span: "" },
-  { src: gallery3, alt: "Multi-level deck with fire pit", span: "" },
-  { src: deckShowcase, alt: "Elevated cedar deck with railings", span: "" },
-  { src: fenceShowcase, alt: "Horizontal cedar slat fence", span: "md:col-span-2" },
+  { src: heroImage, alt: "Bonney Lake deck with pool surround", span: "md:col-span-2" },
+  { src: gallery1, alt: "Custom deck with above-ground pool", span: "" },
+  { src: gallery2, alt: "Deck stairs and railing detail", span: "" },
+  { src: gallery3, alt: "Cedar deck with privacy fencing", span: "" },
+  { src: deckShowcase, alt: "Composite deck stairway construction", span: "" },
+  { src: fenceShowcase, alt: "Deck and landscaping overview", span: "md:col-span-2" },
 ];
 
 const Gallery = () => {
