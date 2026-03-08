@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ArrowLeft, Calculator, Ruler, Fence, LayoutDashboard, Trees, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -113,8 +113,14 @@ const Estimate = () => {
     if (canCalculate) setShowEstimate(true);
   };
 
+  const navigate = useNavigate();
+
   const handleLeadSubmit = () => {
-    if (contactEmail || contactPhone) {
+    if (projectPhase === "ready") {
+      navigate("/schedule");
+      return;
+    }
+    if (contactEmail) {
       setLeadSubmitted(true);
     }
   };
@@ -560,10 +566,10 @@ const Estimate = () => {
                   <div className="mx-auto max-w-sm space-y-4 rounded-lg border border-border bg-muted/30 p-6 text-left">
                     <div className="text-center">
                       <p className="font-display text-lg font-semibold text-foreground">
-                        Want a more accurate quote?
+                        Want this estimate sent to you?
                       </p>
                       <p className="mt-1 text-sm text-muted-foreground">
-                        Leave your info and we'll follow up with you.
+                        Enter your email and we'll send a copy of your estimate.
                       </p>
                     </div>
 
@@ -581,23 +587,15 @@ const Estimate = () => {
                     </div>
 
                     <div>
-                      <Label htmlFor="contact-phone" className="mb-1.5 block text-sm">
-                        Phone
-                      </Label>
-                      <Input
-                        id="contact-phone"
-                        type="tel"
-                        placeholder="(555) 123-4567"
-                        value={contactPhone}
-                        onChange={(e) => setContactPhone(e.target.value)}
-                      />
-                    </div>
-
-                    <div>
                       <Label className="mb-1.5 block text-sm">Where are you in the process?</Label>
                       <RadioGroup
                         value={projectPhase}
-                        onValueChange={setProjectPhase}
+                        onValueChange={(val) => {
+                          setProjectPhase(val);
+                          if (val === "ready") {
+                            navigate("/schedule");
+                          }
+                        }}
                         className="space-y-2"
                       >
                         {[
@@ -627,19 +625,19 @@ const Estimate = () => {
                     <Button
                       className="w-full"
                       size="lg"
-                      disabled={!contactEmail && !contactPhone}
+                      disabled={!contactEmail}
                       onClick={handleLeadSubmit}
                     >
-                      Submit
+                      Send Me My Estimate
                     </Button>
                   </div>
                 ) : (
                   <div className="mx-auto max-w-sm rounded-lg border border-primary/20 bg-primary/5 p-6 text-center">
                     <p className="font-display text-lg font-semibold text-foreground">
-                      Thanks! We'll be in touch soon 🙌
+                      Estimate sent! Check your inbox 📧
                     </p>
                     <p className="mt-1 text-sm text-muted-foreground">
-                      We'll reach out to discuss your project.
+                      We'll also follow up to help with your project.
                     </p>
                   </div>
                 )}
