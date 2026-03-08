@@ -592,9 +592,6 @@ const Estimate = () => {
                         value={projectPhase}
                         onValueChange={(val) => {
                           setProjectPhase(val);
-                          if (val === "ready") {
-                            navigate("/schedule");
-                          }
                         }}
                         className="space-y-2"
                       >
