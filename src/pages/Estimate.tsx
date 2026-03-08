@@ -33,6 +33,12 @@ const FENCE_HEIGHTS = [
   { value: "8", label: "8 ft", multiplier: 1.3 },
 ];
 
+const FENCE_REMOVAL_PER_LF = 12.5;
+const METAL_POST_COST = 80;
+const WOOD_POST_COST = 42;
+const SMALL_GATE_COST = 640;
+const LARGE_GATE_COST = 720;
+
 const DECK_HEIGHTS = [
   { value: "below-3", label: "Below 3'", multiplier: 1.0 },
   { value: "3-6", label: "3' – 6'", multiplier: 1.3 },
