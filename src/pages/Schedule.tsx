@@ -7,6 +7,13 @@ import Footer from "@/components/Footer";
 
 const CALENDLY_URL = "https://calendly.com/nick-nextlevel-decks/30min?text_color=000000";
 
+const ScrollToTop = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  return null;
+};
+
 const CalendlyEmbed = ({ url }: { url: string }) => {
   useEffect(() => {
     const script = document.createElement("script");
