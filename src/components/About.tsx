@@ -82,28 +82,28 @@ const About = () => {
       </div>
 
       {/* Why Choose Us */}
-      <div className="section-padding bg-background">
+      <div className="section-padding bg-[hsl(25,20%,10%)]">
         <div className="mx-auto max-w-7xl">
           <div className="mb-16 text-center">
             <p className="mb-2 text-sm font-semibold uppercase tracking-[0.15em] text-secondary">
               Why Choose Us
             </p>
-            <h2 className="font-display text-3xl font-bold text-foreground md:text-5xl">
+            <h2 className="font-display text-3xl font-bold text-white md:text-5xl">
               Our Promise to You
             </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
+            <p className="mx-auto mt-4 max-w-2xl text-white/70">
               Next Level Decks and Fences is built on a commitment to honest work, quality craftsmanship, and treating every backyard like our own.
             </p>
           </div>
 
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {promises.map((p) => (
-              <div key={p.title} className="rounded-lg border border-border bg-card p-8 text-center shadow-sm">
-                <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-primary/10 text-primary">
+              <div key={p.title} className="rounded-lg border border-white/20 bg-white/10 backdrop-blur-sm p-8 text-center shadow-sm">
+                <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-white/20 text-white">
                   <p.icon className="h-7 w-7" />
                 </div>
-                <h3 className="mb-2 font-display text-lg font-bold text-foreground">{p.title}</h3>
-                <p className="text-sm text-muted-foreground">{p.description}</p>
+                <h3 className="mb-2 font-display text-lg font-bold text-white">{p.title}</h3>
+                <p className="text-sm text-white/70">{p.description}</p>
               </div>
             ))}
           </div>
