@@ -103,9 +103,12 @@ const Estimate = () => {
     setMaterial("");
     setLength("");
     setWidth("");
+    setRailingLf("");
+    setRailingAutoCalc(true);
     setFenceHeight("6");
     setDeckHeight("below-3");
     setShowEstimate(false);
+  };
   };
 
   const materialLabel =
