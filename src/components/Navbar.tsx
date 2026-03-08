@@ -32,7 +32,7 @@ const Navbar = () => {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         <a href="#home" className="shrink-0">
-          <img src={logo} alt="Next Level Decks and Fences" className="h-10" />
+          <img src={logo} alt="Next Level Decks and Fences" className="h-16 md:h-20" />
         </a>
 
         {/* Desktop */}
@@ -42,7 +42,7 @@ const Navbar = () => {
               <Link
                 key={link.href}
                 to={link.href}
-                className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+                className="text-base font-semibold text-foreground transition-colors hover:text-primary"
               >
                 {link.label}
               </Link>
@@ -50,7 +50,7 @@ const Navbar = () => {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+                className="text-base font-semibold text-foreground transition-colors hover:text-primary"
               >
                 {link.label}
               </a>
@@ -82,7 +82,7 @@ const Navbar = () => {
                 key={link.href}
                 to={link.href}
                 onClick={() => setMobileOpen(false)}
-                className="block py-3 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+                className="block py-3 text-base font-semibold text-foreground transition-colors hover:text-primary"
               >
                 {link.label}
               </Link>
@@ -91,7 +91,7 @@ const Navbar = () => {
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
-                className="block py-3 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+                className="block py-3 text-base font-semibold text-foreground transition-colors hover:text-primary"
               >
                 {link.label}
               </a>
