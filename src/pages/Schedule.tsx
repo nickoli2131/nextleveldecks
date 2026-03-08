@@ -39,6 +39,7 @@ const CalendlyEmbed = ({ url }: { url: string }) => {
 const Schedule = () => {
   return (
     <div className="min-h-screen">
+      <ScrollToTop />
       <Navbar />
 
       <section className="section-padding pt-32 bg-background">
