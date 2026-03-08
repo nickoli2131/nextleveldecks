@@ -58,6 +58,10 @@ const Estimate = () => {
   const [postType, setPostType] = useState("wood");
   const [smallGates, setSmallGates] = useState("0");
   const [largeGates, setLargeGates] = useState("0");
+  const [contactEmail, setContactEmail] = useState("");
+  const [contactPhone, setContactPhone] = useState("");
+  const [projectPhase, setProjectPhase] = useState("");
+  const [leadSubmitted, setLeadSubmitted] = useState(false);
 
   const calculateEstimate = () => {
     const l = parseFloat(length) || 0;
