@@ -123,6 +123,10 @@ const Estimate = () => {
     setFenceHeight("6");
     setDeckHeight("below-3");
     setShowEstimate(false);
+    setNeedsRemoval("no");
+    setPostType("wood");
+    setSmallGates("0");
+    setLargeGates("0");
   };
 
   const materialLabel =
