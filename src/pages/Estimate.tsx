@@ -60,9 +60,19 @@ const Estimate = () => {
       const sqFt = l * w;
       const mat = DECK_MATERIALS.find((m) => m.value === material);
       const dh = DECK_HEIGHTS.find((h) => h.value === deckHeight);
-      if (!mat || !dh || sqFt === 0) return { low: 0, high: 0, unit: "sq ft", size: 0 };
-      const base = sqFt * mat.pricePerSqFt * dh.multiplier;
-      return { low: Math.round(base * 0.85), high: Math.round(base * 1.25), unit: "sq ft", size: sqFt };
+      const rlf = parseFloat(railingLf) || 0;
+      if (!mat || !dh || sqFt === 0) return { low: 0, high: 0, unit: "sq ft", size: sqFt };
+      const framingCost = sqFt * FRAMING_PER_SQFT * dh.multiplier;
+      const deckingLow = sqFt * mat.deckingLow;
+      const deckingHigh = sqFt * mat.deckingHigh;
+      const railLow = rlf * mat.railingLow;
+      const railHigh = rlf * mat.railingHigh;
+      return {
+        low: Math.round(framingCost + deckingLow + railLow),
+        high: Math.round(framingCost + deckingHigh + railHigh),
+        unit: "sq ft",
+        size: sqFt,
+      };
     }
 
     // fence
