@@ -16,6 +16,10 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
+  const linkClass = scrolled
+    ? "text-base font-semibold text-foreground transition-colors hover:text-primary"
+    : "text-base font-bold text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] transition-colors hover:text-secondary";
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", onScroll);
@@ -27,7 +31,7 @@ const Navbar = () => {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
           ? "bg-background/95 backdrop-blur-md shadow-md"
-          : "bg-transparent"
+          : "bg-black/40 backdrop-blur-sm"
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
@@ -42,7 +46,7 @@ const Navbar = () => {
               <Link
                 key={link.href}
                 to={link.href}
-                className="text-base font-semibold text-foreground transition-colors hover:text-primary"
+                className={linkClass}
               >
                 {link.label}
               </Link>
@@ -50,7 +54,7 @@ const Navbar = () => {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-base font-semibold text-foreground transition-colors hover:text-primary"
+                className={linkClass}
               >
                 {link.label}
               </a>
@@ -65,7 +69,7 @@ const Navbar = () => {
 
         {/* Mobile toggle */}
         <button
-          className="text-foreground md:hidden"
+          className={`md:hidden ${scrolled ? "text-foreground" : "text-white"}`}
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
         >
