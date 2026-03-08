@@ -16,6 +16,10 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
+  const linkClass = scrolled
+    ? "text-base font-semibold text-foreground transition-colors hover:text-primary"
+    : "text-base font-bold text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] transition-colors hover:text-secondary";
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", onScroll);
