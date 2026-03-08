@@ -71,14 +71,7 @@ const Schedule = () => {
 
           {/* Calendly embed area */}
           {CALENDLY_URL ? (
-            <div className="overflow-hidden rounded-lg border border-border bg-card shadow-sm">
-              <iframe
-                src={CALENDLY_URL}
-                title="Schedule a call"
-                className="h-[700px] w-full border-0"
-                loading="lazy"
-              />
-            </div>
+            <CalendlyEmbed url={CALENDLY_URL} />
           ) : (
             <div className="flex flex-col items-center justify-center rounded-lg border-2 border-dashed border-border bg-card p-16 text-center">
               <Calendar className="mb-4 h-16 w-16 text-muted-foreground/40" />
