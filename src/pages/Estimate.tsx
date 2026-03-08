@@ -113,6 +113,12 @@ const Estimate = () => {
     if (canCalculate) setShowEstimate(true);
   };
 
+  const handleLeadSubmit = () => {
+    if (contactEmail || contactPhone) {
+      setLeadSubmitted(true);
+    }
+  };
+
   const resetCalculator = () => {
     setStep(1);
     setProjectType("");
@@ -128,6 +134,10 @@ const Estimate = () => {
     setPostType("wood");
     setSmallGates("0");
     setLargeGates("0");
+    setContactEmail("");
+    setContactPhone("");
+    setProjectPhase("");
+    setLeadSubmitted(false);
   };
 
   const materialLabel =
