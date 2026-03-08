@@ -109,7 +109,6 @@ const Estimate = () => {
     setDeckHeight("below-3");
     setShowEstimate(false);
   };
-  };
 
   const materialLabel =
     projectType === "deck"
