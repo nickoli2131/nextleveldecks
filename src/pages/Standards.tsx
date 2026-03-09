@@ -1,22 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Shield, CheckCircle, Award } from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-
-const standardsEntries = [
-  {
-    title: "G-Tape Flashing System",
-    icon: Shield,
-    summary:
-      "We use G-Tape butyl-based flashing tape on every deck ledger board and beam connection to prevent moisture intrusion and rot — the #1 cause of structural deck failure.",
-    details: [
-      "Self-adhering butyl flashing rated for extreme weather",
-      "Applied to ledger boards, beam pockets, and all critical junctions",
-      "Prevents water damage that voids most warranties",
-      "Industry best-practice endorsed by leading building scientists",
-    ],
-  },
-];
+import { Shield, Award, Droplets, Wind, Wrench, TreePine } from "lucide-react";
+import { Separator } from "@/components/ui/separator";
 
 const Standards = () => {
   return (
@@ -35,37 +20,93 @@ const Standards = () => {
         </div>
       </section>
 
-      {/* Entries */}
-      <section className="mx-auto max-w-4xl px-6 py-16">
-        <div className="space-y-10">
-          {standardsEntries.map((entry) => (
-            <Card key={entry.title} className="overflow-hidden">
-              <CardHeader className="bg-muted">
-                <CardTitle className="flex items-center gap-3 text-xl">
-                  <entry.icon className="h-6 w-6 text-primary" />
-                  {entry.title}
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="pt-6">
-                <p className="mb-4 text-muted-foreground">{entry.summary}</p>
-                <ul className="space-y-2">
-                  {entry.details.map((d) => (
-                    <li key={d} className="flex items-start gap-2">
-                      <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                      <span className="text-sm">{d}</span>
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
-          ))}
+      {/* G-Tape Article */}
+      <article className="mx-auto max-w-3xl px-6 py-16">
+        <div className="mb-6 flex items-center gap-3">
+          <Shield className="h-8 w-8 text-primary" />
+          <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary">
+            Quality Standard #1
+          </span>
         </div>
 
-        <p className="mt-12 text-center text-sm text-muted-foreground">
-          More standards entries coming soon. Each article highlights a specific
+        <h2 className="text-3xl font-bold leading-tight md:text-4xl">
+          The Silent Killer of Great Decks (And the Tape That Stops It)
+        </h2>
+
+        <Separator className="my-8" />
+
+        <div className="prose prose-lg max-w-none space-y-6 text-muted-foreground">
+          <p>
+            When you're standing on a brand-new deck, admiring the clean lines of the railing and the perfect wood grain of the boards, it's easy to forget that the most important part of the structure is the part you'll never see. Beneath those beautiful boards lies a skeleton of wooden joists holding everything together. In a perfect world, that frame would last as long as the house itself.
+          </p>
+          <p>
+            But we don't live in a perfect world—we live in the Pacific Northwest. Here, moisture isn't just a weather report; it's a constant mechanical force working to dismantle your investment from the inside out. This is where a specialized material called <strong className="text-foreground">G-Tape</strong> becomes the difference between a deck that lasts a decade and one that lasts a generation.
+          </p>
+
+          {/* Section: Water Sandwich */}
+          <div className="my-10 rounded-xl border border-border bg-muted/50 p-6 md:p-8">
+            <div className="mb-4 flex items-center gap-3">
+              <Droplets className="h-6 w-6 text-primary" />
+              <h3 className="text-xl font-bold text-foreground">The "Water Sandwich" Phenomenon</h3>
+            </div>
+            <p>
+              To understand why we obsessed over a roll of tape, you have to understand how a deck actually fails. It rarely starts with the boards you walk on. Instead, it starts at the "joist crown"—the flat top surface of the structural lumber.
+            </p>
+            <p className="mt-4">
+              When it rains, water doesn't just disappear. It trickles through the gaps in your decking and settles directly on top of the joists. Because the deck boards are screwed tightly into that wood, the water gets trapped in a tight space with zero airflow. I call this the <strong className="text-foreground">"water sandwich."</strong> Every single screw creates a tiny puncture wound, acting like a straw that sucks moisture deep into the heart of the timber. Over time, that trapped water triggers fungal rot, softening the wood until the screws lose their "bite" and the frame begins to sag.
+            </p>
+          </div>
+
+          {/* Section: Self-Healing */}
+          <div className="my-10 rounded-xl border border-border bg-muted/50 p-6 md:p-8">
+            <div className="mb-4 flex items-center gap-3">
+              <Wrench className="h-6 w-6 text-primary" />
+              <h3 className="text-xl font-bold text-foreground">Enter the Self-Healing Barrier</h3>
+            </div>
+            <p>
+              This is where G-Tape (specifically the 3040BK series) changes the game. Unlike the old-school asphalt tapes of the past, G-Tape is a technical marvel made from a patented cloth and a high-performance acrylic adhesive.
+            </p>
+            <p className="mt-4">
+              The "magic" happens the moment a screw passes through it. The acrylic adhesive is designed to be <strong className="text-foreground">self-healing</strong>. As the fastener enters the wood, the tape tightly wraps around the threads, creating a permanent, watertight gasket. It effectively heals the wound it just made, ensuring that moisture can never follow that screw down into the joist.
+            </p>
+          </div>
+
+          {/* Section: Vapor Permeable */}
+          <div className="my-10 rounded-xl border border-border bg-muted/50 p-6 md:p-8">
+            <div className="mb-4 flex items-center gap-3">
+              <Wind className="h-6 w-6 text-primary" />
+              <h3 className="text-xl font-bold text-foreground">More Than Just a Waterproof Sticker</h3>
+            </div>
+            <p>
+              But G-Tape does more than just block water; it manages it. A common mistake in construction is completely "suffocating" wood, which can actually cause dry rot by trapping internal vapors. G-Tape is engineered to be <strong className="text-foreground">vapor-permeable</strong>. It blocks liquid water from entering the top of the joist while allowing the wood to "breathe" out any internal moisture. This keeps the lumber dimensionally stable, meaning your joists won't twist, warp, or "mushroom" over the years.
+            </p>
+            <p className="mt-4">
+              When the wood stays dry and dense, the fasteners stay tight. This eliminates the annoying squeaks, creaks, and "wavy" boards that often plague decks after just a few years of Northwest winters.
+            </p>
+          </div>
+
+          {/* Section: Long Haul */}
+          <div className="my-10 rounded-xl border border-primary/20 bg-primary/5 p-6 md:p-8">
+            <div className="mb-4 flex items-center gap-3">
+              <TreePine className="h-6 w-6 text-primary" />
+              <h3 className="text-xl font-bold text-foreground">Building for the Long Haul</h3>
+            </div>
+            <p>
+              Adding G-Tape to a build is a hallmark of a contractor who isn't just looking to finish a job, but to <strong className="text-foreground">leave a legacy</strong>. While it's a small detail hidden under the surface, it's the single most effective way to ensure the "bones" of your deck stay as healthy as the day they were framed.
+            </p>
+            <p className="mt-4">
+              By investing in this invisible layer of protection, you aren't just buying a deck—you're buying <strong className="text-foreground">thirty years</strong> of backyard BBQs, morning coffees, and peace of mind, knowing that your foundation is as solid as the day it was built.
+            </p>
+          </div>
+        </div>
+
+        <Separator className="my-8" />
+
+        <p className="text-center text-sm text-muted-foreground">
+          More standards articles coming soon. Each entry highlights a specific
           material or technique we use to build decks and fences that last.
         </p>
-      </section>
+      </article>
 
       <Footer />
     </div>
