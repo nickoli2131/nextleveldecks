@@ -1,6 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Shield, Award, Droplets, Wind, Wrench, TreePine } from "lucide-react";
+import { Shield, Award, Droplets, Wind, Wrench, TreePine, Fence, Bug, Zap } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 
 const Standards = () => {
@@ -96,6 +96,82 @@ const Standards = () => {
             </p>
             <p className="mt-4">
               By investing in this invisible layer of protection, you aren't just buying a deck—you're buying <strong className="text-foreground">thirty years</strong> of backyard BBQs, morning coffees, and peace of mind, knowing that your foundation is as solid as the day it was built.
+            </p>
+          </div>
+        </div>
+
+        <Separator className="my-8" />
+      </article>
+
+      {/* PostMaster Article */}
+      <article className="mx-auto max-w-3xl px-6 py-16">
+        <div className="mb-6 flex items-center gap-3">
+          <Fence className="h-8 w-8 text-primary" />
+          <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary">
+            Quality Standard #2
+          </span>
+        </div>
+
+        <h2 className="text-3xl font-bold leading-tight md:text-4xl">
+          The Invisible Spine: Why We've Replaced Wood Posts with PostMaster Steel
+        </h2>
+
+        <Separator className="my-8" />
+
+        <div className="prose prose-lg max-w-none space-y-6 text-muted-foreground">
+          <p>
+            When you think of a failing fence, you probably picture a section leaning into the neighbor's yard or a gate that just won't latch anymore. It's frustrating because, often, the wood pickets themselves still look great. But the culprit is almost always hidden underground. Traditional 4x4 wood posts are the "Achilles' heel" of any fence—they are the first part to rot, the first to warp, and the first to snap when a heavy Snohomish County windstorm rolls through.
+          </p>
+          <p>
+            Around here, we've seen too many homeowners forced to replace an entire fence just because two or three posts failed. That is why we have made the switch to <strong className="text-foreground">PostMaster Steel Posts</strong>. It is a system that gives your home the structural invincibility of a commercial-grade frame while maintaining the warm, classic look of a 100% wood privacy fence.
+          </p>
+
+          <div className="my-10 rounded-xl border border-border bg-muted/50 p-6 md:p-8">
+            <div className="mb-4 flex items-center gap-3">
+              <Droplets className="h-6 w-6 text-primary" />
+              <h3 className="text-xl font-bold text-foreground">The Problem with Wood Underground</h3>
+            </div>
+            <p>
+              Even the best pressure-treated 4x4 posts are on a ticking clock the moment they hit the dirt. Soil moisture and standing water at the concrete line eventually cause the wood to soften and decay. But rot isn't the only issue. As wood posts dry out over the years, they have a natural tendency to twist or "diamond." This movement pulls your entire fence out of alignment, leaving your gates crooked and your horizontal rails strained.
+            </p>
+            <p className="mt-4">
+              If you've ever had to deal with the expense and headache of a leaning fence, you know exactly how much that "weak link" can cost you in the long run.
+            </p>
+          </div>
+
+          <div className="my-10 rounded-xl border border-border bg-muted/50 p-6 md:p-8">
+            <div className="mb-4 flex items-center gap-3">
+              <Shield className="h-6 w-6 text-primary" />
+              <h3 className="text-xl font-bold text-foreground">Steel Strength, Wood Aesthetics</h3>
+            </div>
+            <p>
+              In the past, if you wanted the strength of steel, you had to settle for round chain-link pipes that stood out like a sore thumb against your beautiful cedar boards. PostMaster changed that. These posts are engineered with a unique "hat" shape—a slim, U-shaped profile—that allows us to cover them completely with matching wood pickets.
+            </p>
+            <p className="mt-4">
+              Once the project is finished, the steel is entirely invisible. You get a <strong className="text-foreground">"Good Neighbor" fence</strong> that looks like 100% natural wood from both sides, but with a hidden spine of galvanized structural steel that won't budge.
+            </p>
+          </div>
+
+          <div className="my-10 rounded-xl border border-border bg-muted/50 p-6 md:p-8">
+            <div className="mb-4 flex items-center gap-3">
+              <Zap className="h-6 w-6 text-primary" />
+              <h3 className="text-xl font-bold text-foreground">Why This is a "Next Level" Upgrade</h3>
+            </div>
+            <p>
+              The difference shows up when the weather gets rough. While a standard wood post can fail or snap in high winds, PostMaster posts are engineered to withstand gusts of up to <strong className="text-foreground">73 mph</strong>, providing a rigid, unwavering anchor for your property. Because they are heavy-duty galvanized, they are immune to the rot, warping, and pests that claim wood posts every 10 to 15 years.
+            </p>
+            <p className="mt-4">
+              In fact, these posts are backed by a <strong className="text-foreground">Limited Lifetime Warranty</strong>. This means the "bones" of your fence will likely outlast the pickets themselves.
+            </p>
+          </div>
+
+          <div className="my-10 rounded-xl border border-primary/20 bg-primary/5 p-6 md:p-8">
+            <div className="mb-4 flex items-center gap-3">
+              <TreePine className="h-6 w-6 text-primary" />
+              <h3 className="text-xl font-bold text-foreground">The Verdict: Build Your Last Fence First</h3>
+            </div>
+            <p>
+              Choosing PostMaster steel posts is a small upfront investment that pays for itself the first time a major windstorm hits. While your neighbors are spending their weekend digging out rotted 4x4s and hauling heavy concrete to fix a leaning fence, yours will still be standing perfectly straight—unbothered by the wet soil that eventually claims every wooden post.
             </p>
           </div>
         </div>
