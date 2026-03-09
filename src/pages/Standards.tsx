@@ -22,7 +22,7 @@ const articles = [
     id: "dunn-lumber",
     icon: Trees,
     label: "Standard #3",
-    title: "The "Straight-Frame" Secret: Why We Source Our Lumber from Dunn Lumber",
+    title: "The \u201CStraight-Frame\u201D Secret: Why We Source Our Lumber from Dunn Lumber",
     summary: "Kiln-dried, slow-growth BC timber that keeps your deck flat, quiet, and rock-solid.",
   },
 ];
