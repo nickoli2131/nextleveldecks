@@ -7,6 +7,7 @@ import logo from "@/assets/logo.png";
 const navLinks = [
   { label: "Home", href: "/#home" },
   { label: "About", href: "/#about" },
+  { label: "Services", href: "/services", isRoute: true },
   { label: "The 'Next Level' Standard", href: "/standards", isRoute: true },
   { label: "Gallery", href: "/#gallery" },
   { label: "Estimator", href: "/estimate", isRoute: true },
