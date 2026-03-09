@@ -1,7 +1,32 @@
-import { ShieldCheck, Clock, ThumbsUp, Hammer, Fence, LayoutDashboard } from "lucide-react";
+import { ShieldCheck, Clock, ThumbsUp, Hammer, Fence, LayoutDashboard, Award, Shield, Trees, ChevronRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import darkWoodBg from "@/assets/dark-wood-bg.jpg";
 import deckImage from "@/assets/deck-showcase.jpg";
 import fenceImage from "@/assets/fence-showcase.jpg";
+
+const standards = [
+  {
+    icon: Shield,
+    label: "Standard #1",
+    title: "G-Tape Joist Protection",
+    description: "Self-healing flashing tape that waterproofs every screw hole, protecting your deck frame for decades.",
+    anchor: "g-tape",
+  },
+  {
+    icon: Fence,
+    label: "Standard #2",
+    title: "PostMaster Steel Posts",
+    description: "Galvanized steel posts that resist rot, warping, and 73 mph winds — hidden behind a 100% wood look.",
+    anchor: "postmaster",
+  },
+  {
+    icon: Trees,
+    label: "Standard #3",
+    title: "Dunn Lumber Sourcing",
+    description: "Kiln-dried, slow-growth BC timber that keeps your deck flat, quiet, and rock-solid for years.",
+    anchor: "dunn-lumber",
+  },
+];
 
 const services = [
   {
@@ -77,6 +102,43 @@ const About = () => {
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* Next Level Standards */}
+          <div className="mt-20">
+            <div className="mb-10 text-center">
+              <div className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-full bg-primary/20 text-primary">
+                <Award className="h-7 w-7" />
+              </div>
+              <h3 className="font-display text-2xl font-bold text-white md:text-3xl">
+                The 'Next Level' Standards
+              </h3>
+              <p className="mx-auto mt-3 max-w-2xl text-white/70">
+                Every build follows our three quality standards — the materials and methods that set us apart from the rest.
+              </p>
+            </div>
+
+            <div className="grid gap-6 md:grid-cols-3">
+              {standards.map((s) => (
+                <Link
+                  key={s.anchor}
+                  to={`/standards#${s.anchor}`}
+                  className="group flex flex-col rounded-lg border border-white/20 bg-white/10 backdrop-blur-sm p-6 transition-all hover:border-primary/50 hover:bg-white/15"
+                >
+                  <div className="mb-3 flex items-center gap-2">
+                    <s.icon className="h-5 w-5 text-primary" />
+                    <span className="rounded-full bg-primary/20 px-2 py-0.5 text-xs font-semibold uppercase tracking-wider text-primary">
+                      {s.label}
+                    </span>
+                  </div>
+                  <h4 className="mb-2 text-lg font-bold text-white">{s.title}</h4>
+                  <p className="mb-4 flex-1 text-sm text-white/70">{s.description}</p>
+                  <span className="inline-flex items-center text-sm font-medium text-primary group-hover:underline">
+                    Read more <ChevronRight className="ml-1 h-4 w-4" />
+                  </span>
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       </div>
