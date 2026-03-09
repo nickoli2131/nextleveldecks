@@ -184,6 +184,86 @@ const Standards = () => {
         </p>
       </article>
 
+      {/* Dunn Lumber Article */}
+      <article className="mx-auto max-w-3xl px-6 py-16">
+        <div className="mb-6 flex items-center gap-3">
+          <Trees className="h-8 w-8 text-primary" />
+          <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary">
+            Quality Standard #3
+          </span>
+        </div>
+
+        <h2 className="text-3xl font-bold leading-tight md:text-4xl">
+          The "Straight-Frame" Secret: Why We Source Our Lumber from Dunn Lumber
+        </h2>
+
+        <Separator className="my-8" />
+
+        <div className="prose prose-lg max-w-none space-y-6 text-muted-foreground">
+          <p>
+            When you're planning a new outdoor living space, it's easy to get caught up in the aesthetics of the surface. But at the end of the day, a deck is only as reliable as the frame supporting it. If that skeleton isn't stable, even the highest-end composite boards will eventually start to shift, squeak, or pull apart.
+          </p>
+          <p>
+            To prevent this, we've moved away from the "standard" lumber found at big-box retailers. Instead, we source our structural timber exclusively from <strong className="text-foreground">Dunn Lumber</strong>. The difference isn't just in the name—it's in a rigorous preparation process that ensures your deck stays as straight and level in ten years as it is on day one.
+          </p>
+
+          <div className="my-10 rounded-xl border border-border bg-muted/50 p-6 md:p-8">
+            <div className="mb-4 flex items-center gap-3">
+              <TreePine className="h-6 w-6 text-primary" />
+              <h3 className="text-xl font-bold text-foreground">Beyond "Standard" Timber</h3>
+            </div>
+            <p>
+              Most pressure-treated wood used in construction is what builders call "green." This lumber is saturated with moisture and sap when it's installed. As the Washington sun hits your deck, that moisture evaporates, causing the wood to shrink and warp with incredible force. This is the primary cause of "joist roll" and "fastener pop," where the moving wood literally pushes screws out and creates a wavy, uneven walking surface.
+            </p>
+            <p className="mt-4">
+              To avoid these structural headaches, we insist on a higher grade of fiber. The premium lumber we source through Dunn is harvested from the <strong className="text-foreground">slow-growth forests of British Columbia</strong>. Because trees in the BC climate grow more slowly, the wood is denser and the grain is much tighter. This natural density provides a superior "bite" for every screw and bolt we drive, creating a rock-solid connection that won't loosen over time.
+            </p>
+          </div>
+
+          <div className="my-10 rounded-xl border border-border bg-muted/50 p-6 md:p-8">
+            <div className="mb-4 flex items-center gap-3">
+              <Flame className="h-6 w-6 text-primary" />
+              <h3 className="text-xl font-bold text-foreground">The Kiln-Dried Advantage</h3>
+            </div>
+            <p>
+              The real secret to a "Next Level" frame, however, is the drying process. The premium timber we use is <strong className="text-foreground">kiln-dried</strong> before it ever reaches the pressure-treatment chamber. By pulling the moisture out in a controlled environment, the wood is effectively "pre-shrunk" and stabilized.
+            </p>
+            <p className="mt-4">This process changes the physics of the wood:</p>
+            <ul className="mt-4 space-y-3">
+              <li>
+                <strong className="text-foreground">Superior Treatment:</strong> Because the wood is dry, it acts like a sponge, pulling the pressure-treatment preservatives deep into the heart of the timber rather than just coating the surface.
+              </li>
+              <li>
+                <strong className="text-foreground">Eliminating the Twist:</strong> Since the moisture is already gone, the joists won't twist, cup, or bow as they weather the seasons.
+              </li>
+              <li>
+                <strong className="text-foreground">Whisper-Quiet Performance:</strong> Stable wood stays tight against the hangers and decking, eliminating the gaps that cause those annoying "creaks" when you walk across the deck.
+              </li>
+            </ul>
+          </div>
+
+          <div className="my-10 rounded-xl border border-primary/20 bg-primary/5 p-6 md:p-8">
+            <div className="mb-4 flex items-center gap-3">
+              <Wrench className="h-6 w-6 text-primary" />
+              <h3 className="text-xl font-bold text-foreground">Engineering for Longevity</h3>
+            </div>
+            <p>
+              In the Pacific Northwest, building a deck that survives the elements requires more than just good craftsmanship—it requires superior materials. By choosing kiln-dried, slow-growth timber from Dunn Lumber, we ensure that the "bones" of your project are engineered for stability.
+            </p>
+            <p className="mt-4">
+              It is a hidden detail that you might not notice immediately, but it is the reason your deck will remain flat, quiet, and structurally sound for decades to come. When we build, we aren't just looking at the finished product; we are looking at the <strong className="text-foreground">foundation that will support your backyard memories for a lifetime</strong>.
+            </p>
+          </div>
+        </div>
+
+        <Separator className="my-8" />
+
+        <p className="text-center text-sm text-muted-foreground">
+          More standards articles coming soon. Each entry highlights a specific
+          material or technique we use to build decks and fences that last.
+        </p>
+      </article>
+
       <Footer />
     </div>
   );
