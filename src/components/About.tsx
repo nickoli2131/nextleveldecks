@@ -1,4 +1,4 @@
-import { ShieldCheck, Clock, ThumbsUp, Hammer, Fence, LayoutDashboard, Award, Shield, Trees, ChevronRight } from "lucide-react";
+import { Fence, LayoutDashboard, Shield, Trees, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import darkWoodBg from "@/assets/dark-wood-bg.jpg";
 import deckImage from "@/assets/deck-showcase.jpg";
