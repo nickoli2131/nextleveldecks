@@ -1,7 +1,31 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Shield, Award, Droplets, Wind, Wrench, TreePine, Fence, Zap, Trees, Flame, Volume2 } from "lucide-react";
+import { Shield, Award, Droplets, Wind, Wrench, TreePine, Fence, Zap, Trees, Flame, ChevronRight } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
+
+const articles = [
+  {
+    id: "g-tape",
+    icon: Shield,
+    label: "Standard #1",
+    title: "The Silent Killer of Great Decks (And the Tape That Stops It)",
+    summary: "Why G-Tape flashing is the invisible upgrade that protects your deck frame for decades.",
+  },
+  {
+    id: "postmaster",
+    icon: Fence,
+    label: "Standard #2",
+    title: "The Invisible Spine: Why We've Replaced Wood Posts with PostMaster Steel",
+    summary: "How galvanized steel posts give your fence commercial-grade strength with a 100% wood look.",
+  },
+  {
+    id: "dunn-lumber",
+    icon: Trees,
+    label: "Standard #3",
+    title: "The \u201CStraight-Frame\u201D Secret: Why We Source Our Lumber from Dunn Lumber",
+    summary: "Kiln-dried, slow-growth BC timber that keeps your deck flat, quiet, and rock-solid.",
+  },
+];
 
 const Standards = () => {
   return (
@@ -12,7 +36,7 @@ const Standards = () => {
       <section className="relative flex items-center justify-center bg-foreground px-6 pb-16 pt-32 text-center text-primary-foreground">
         <div className="mx-auto max-w-3xl">
           <Award className="mx-auto mb-4 h-12 w-12 text-primary" />
-          <h1 className="text-4xl font-bold md:text-5xl">The Next Level Way</h1>
+          <h1 className="text-4xl font-bold md:text-5xl">The 'Next Level' Standards</h1>
           <p className="mt-4 text-lg text-primary-foreground/70">
             Our commitment to quality goes beyond code — every material and
             method we use is chosen to outlast and outperform.
@@ -20,8 +44,36 @@ const Standards = () => {
         </div>
       </section>
 
+      {/* Article Selector */}
+      <section className="mx-auto max-w-4xl px-6 py-16">
+        <h2 className="mb-8 text-center text-2xl font-bold md:text-3xl">Choose a Standard to Read</h2>
+        <div className="grid gap-4 md:grid-cols-3">
+          {articles.map((article) => (
+            <a
+              key={article.id}
+              href={`#${article.id}`}
+              className="group flex flex-col rounded-xl border border-border bg-card p-6 transition-all hover:border-primary/50 hover:shadow-lg"
+            >
+              <div className="mb-3 flex items-center gap-2">
+                <article.icon className="h-5 w-5 text-primary" />
+                <span className="rounded-full bg-primary/10 px-2 py-0.5 text-xs font-semibold uppercase tracking-wider text-primary">
+                  {article.label}
+                </span>
+              </div>
+              <h3 className="mb-2 text-lg font-bold leading-tight">{article.title}</h3>
+              <p className="mb-4 flex-1 text-sm text-muted-foreground">{article.summary}</p>
+              <span className="inline-flex items-center text-sm font-medium text-primary group-hover:underline">
+                Read article <ChevronRight className="ml-1 h-4 w-4" />
+              </span>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <Separator className="mx-auto max-w-4xl" />
+
       {/* G-Tape Article */}
-      <article className="mx-auto max-w-3xl px-6 py-16">
+      <article id="g-tape" className="mx-auto max-w-3xl px-6 py-16 scroll-mt-24">
         <div className="mb-6 flex items-center gap-3">
           <Shield className="h-8 w-8 text-primary" />
           <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary">
@@ -43,7 +95,6 @@ const Standards = () => {
            But around here, we don't just "get a little rain." We live in a climate where moisture is a constant, quiet force working against your home. It's the dampness that lingers in the air and the puddles that sit on your deck long after the clouds clear. Without the right protection, that moisture acts like a slow-motion wrecking ball, dismantling your investment from the inside out. This is where a specialized material called <strong className="text-foreground">G-Tape</strong> becomes the difference between a deck that lasts a decade and one that lasts a generation.
           </p>
 
-          {/* Section: Water Sandwich */}
           <div className="my-10 rounded-xl border border-border bg-muted/50 p-6 md:p-8">
             <div className="mb-4 flex items-center gap-3">
               <Droplets className="h-6 w-6 text-primary" />
@@ -57,7 +108,6 @@ const Standards = () => {
             </p>
           </div>
 
-          {/* Section: Self-Healing */}
           <div className="my-10 rounded-xl border border-border bg-muted/50 p-6 md:p-8">
             <div className="mb-4 flex items-center gap-3">
               <Wrench className="h-6 w-6 text-primary" />
@@ -71,7 +121,6 @@ const Standards = () => {
             </p>
           </div>
 
-          {/* Section: Vapor Permeable */}
           <div className="my-10 rounded-xl border border-border bg-muted/50 p-6 md:p-8">
             <div className="mb-4 flex items-center gap-3">
               <Wind className="h-6 w-6 text-primary" />
@@ -85,7 +134,6 @@ const Standards = () => {
             </p>
           </div>
 
-          {/* Section: Long Haul */}
           <div className="my-10 rounded-xl border border-primary/20 bg-primary/5 p-6 md:p-8">
             <div className="mb-4 flex items-center gap-3">
               <TreePine className="h-6 w-6 text-primary" />
@@ -99,12 +147,12 @@ const Standards = () => {
             </p>
           </div>
         </div>
-
-        <Separator className="my-8" />
       </article>
 
+      <Separator className="mx-auto max-w-3xl" />
+
       {/* PostMaster Article */}
-      <article className="mx-auto max-w-3xl px-6 py-16">
+      <article id="postmaster" className="mx-auto max-w-3xl px-6 py-16 scroll-mt-24">
         <div className="mb-6 flex items-center gap-3">
           <Fence className="h-8 w-8 text-primary" />
           <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary">
@@ -175,17 +223,12 @@ const Standards = () => {
             </p>
           </div>
         </div>
-
-        <Separator className="my-8" />
-
-        <p className="text-center text-sm text-muted-foreground">
-          More standards articles coming soon. Each entry highlights a specific
-          material or technique we use to build decks and fences that last.
-        </p>
       </article>
 
+      <Separator className="mx-auto max-w-3xl" />
+
       {/* Dunn Lumber Article */}
-      <article className="mx-auto max-w-3xl px-6 py-16">
+      <article id="dunn-lumber" className="mx-auto max-w-3xl px-6 py-16 scroll-mt-24">
         <div className="mb-6 flex items-center gap-3">
           <Trees className="h-8 w-8 text-primary" />
           <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary">
