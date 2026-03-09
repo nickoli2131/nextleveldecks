@@ -45,12 +45,6 @@ const services = [
   },
 ];
 
-const promises = [
-  { icon: ShieldCheck, title: "Licensed & Insured", description: "Fully licensed, bonded, and insured for your complete peace of mind." },
-  { icon: Hammer, title: "Quality Materials", description: "We use only premium lumber and hardware that's built to withstand the elements." },
-  { icon: Clock, title: "On-Time Delivery", description: "We respect your time — projects are completed on schedule, every time." },
-  { icon: ThumbsUp, title: "100% Satisfaction", description: "We don't consider the job done until you're completely happy with the result." },
-];
 
 const About = () => {
   return (
