@@ -40,7 +40,7 @@ const Standards = () => {
             When you're standing on a brand-new deck, admiring the clean lines of the railing and the perfect wood grain of the boards, it's easy to forget that the most important part of the structure is the part you'll never see. Beneath those beautiful boards lies a skeleton of wooden joists holding everything together. In a perfect world, that frame would last as long as the house itself.
           </p>
           <p>
-            But we don't live in a perfect world—we live in the Pacific Northwest. Here, moisture isn't just a weather report; it's a constant mechanical force working to dismantle your investment from the inside out. This is where a specialized material called <strong className="text-foreground">G-Tape</strong> becomes the difference between a deck that lasts a decade and one that lasts a generation.
+           But around here, we don't just "get a little rain." We live in a climate where moisture is a constant, quiet force working against your home. It's the dampness that lingers in the air and the puddles that sit on your deck long after the clouds clear. Without the right protection, that moisture acts like a slow-motion wrecking ball, dismantling your investment from the inside out. This is where a specialized material called <strong className="text-foreground">G-Tape</strong> becomes the difference between a deck that lasts a decade and one that lasts a generation.
           </p>
 
           {/* Section: Water Sandwich */}
