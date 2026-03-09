@@ -133,6 +133,41 @@ const About = () => {
               </div>
             ))}
           </div>
+
+          {/* Next Level Standards */}
+          <div className="mt-16">
+            <div className="mb-8 flex items-center justify-center gap-3">
+              <Award className="h-7 w-7 text-primary" />
+              <h3 className="font-display text-2xl font-bold text-white md:text-3xl">
+                The 'Next Level' Standards
+              </h3>
+            </div>
+            <p className="mx-auto mb-10 max-w-2xl text-center text-white/70">
+              Every build follows our three quality standards — the materials and methods that set us apart from the rest.
+            </p>
+
+            <div className="grid gap-6 md:grid-cols-3">
+              {standards.map((s) => (
+                <Link
+                  key={s.anchor}
+                  to={`/standards#${s.anchor}`}
+                  className="group flex flex-col rounded-lg border border-white/20 bg-white/10 backdrop-blur-sm p-6 transition-all hover:border-primary/50 hover:bg-white/15"
+                >
+                  <div className="mb-3 flex items-center gap-2">
+                    <s.icon className="h-5 w-5 text-primary" />
+                    <span className="rounded-full bg-primary/20 px-2 py-0.5 text-xs font-semibold uppercase tracking-wider text-primary">
+                      {s.label}
+                    </span>
+                  </div>
+                  <h4 className="mb-2 text-lg font-bold text-white">{s.title}</h4>
+                  <p className="mb-4 flex-1 text-sm text-white/70">{s.description}</p>
+                  <span className="inline-flex items-center text-sm font-medium text-primary group-hover:underline">
+                    Read more <ChevronRight className="ml-1 h-4 w-4" />
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
