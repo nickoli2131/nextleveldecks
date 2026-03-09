@@ -1,6 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Shield, Award, Droplets, Wind, Wrench, TreePine, Fence, Bug, Zap } from "lucide-react";
+import { Shield, Award, Droplets, Wind, Wrench, TreePine, Fence, Zap, Trees, Flame, Volume2 } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 
 const Standards = () => {
