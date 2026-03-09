@@ -2,7 +2,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Calendar, Fence, LayoutDashboard, Home, ShieldCheck, Hammer, ChevronRight } from "lucide-react";
+import { Calendar, Fence, LayoutDashboard, Home, ShieldCheck, Hammer, ChevronRight, Award, Shield, Trees } from "lucide-react";
 import deckImage from "@/assets/deck-showcase.jpg";
 import fenceImage from "@/assets/fence-showcase.jpg";
 import darkWoodBg from "@/assets/dark-wood-bg.jpg";
