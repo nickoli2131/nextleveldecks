@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import Schedule from "./pages/Schedule";
 import Estimate from "./pages/Estimate";
 import Standards from "./pages/Standards";
+import Services from "./pages/Services";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
