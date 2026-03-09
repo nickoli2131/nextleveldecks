@@ -1,7 +1,32 @@
-import { ShieldCheck, Clock, ThumbsUp, Hammer, Fence, LayoutDashboard } from "lucide-react";
+import { ShieldCheck, Clock, ThumbsUp, Hammer, Fence, LayoutDashboard, Award, Shield, Trees, ChevronRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import darkWoodBg from "@/assets/dark-wood-bg.jpg";
 import deckImage from "@/assets/deck-showcase.jpg";
 import fenceImage from "@/assets/fence-showcase.jpg";
+
+const standards = [
+  {
+    icon: Shield,
+    label: "Standard #1",
+    title: "G-Tape Joist Protection",
+    description: "Self-healing flashing tape that waterproofs every screw hole, protecting your deck frame for decades.",
+    anchor: "g-tape",
+  },
+  {
+    icon: Fence,
+    label: "Standard #2",
+    title: "PostMaster Steel Posts",
+    description: "Galvanized steel posts that resist rot, warping, and 73 mph winds — hidden behind a 100% wood look.",
+    anchor: "postmaster",
+  },
+  {
+    icon: Trees,
+    label: "Standard #3",
+    title: "Dunn Lumber Sourcing",
+    description: "Kiln-dried, slow-growth BC timber that keeps your deck flat, quiet, and rock-solid for years.",
+    anchor: "dunn-lumber",
+  },
+];
 
 const services = [
   {
