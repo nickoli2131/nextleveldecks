@@ -53,7 +53,7 @@ const Standards = () => {
               To understand why we obsessed over a roll of tape, you have to understand how a deck actually fails. It rarely starts with the boards you walk on. Instead, it starts at the "joist crown"—the flat top surface of the structural lumber.
             </p>
             <p className="mt-4">
-              When it rains, water doesn't just disappear. It trickles through the gaps in your decking and settles directly on top of the joists. Because the deck boards are screwed tightly into that wood, the water gets trapped in a tight space with zero airflow. I call this the <strong className="text-foreground">"water sandwich."</strong> Every single screw creates a tiny puncture wound, acting like a straw that sucks moisture deep into the heart of the timber. Over time, that trapped water triggers fungal rot, softening the wood until the screws lose their "bite" and the frame begins to sag.
+              When it rains, water doesn't just disappear. It trickles through the gaps in your decking and settles directly on top of the joists. Because the deck boards are screwed tightly into that wood, the water gets trapped in a tight space with zero airflow. Builders call this the <strong className="text-foreground">"water sandwich."</strong> Every single screw creates a tiny puncture wound, acting like a straw that sucks moisture deep into the heart of the timber. Over time, that trapped water triggers fungal rot, softening the wood until the screws lose their "bite" and the frame begins to sag.
             </p>
           </div>
 
