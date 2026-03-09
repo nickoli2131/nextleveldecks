@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin, Facebook, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Contact = () => {
@@ -20,17 +20,29 @@ const Contact = () => {
             </p>
 
             <div className="space-y-5">
-              <div className="flex items-center gap-4">
+              <a href="tel:+14253971550" className="flex items-center gap-4 hover:text-primary-foreground/90">
                 <Phone className="h-5 w-5 text-primary-foreground/70" />
-                <span>(555) 123-4567</span>
-              </div>
-              <div className="flex items-center gap-4">
+                <span>(425) 397-1550</span>
+              </a>
+              <a href="mailto:Nick@nextlevel-decks.com" className="flex items-center gap-4 hover:text-primary-foreground/90">
                 <Mail className="h-5 w-5 text-primary-foreground/70" />
-                <span>info@summitcraft.com</span>
-              </div>
+                <span>Nick@nextlevel-decks.com</span>
+              </a>
               <div className="flex items-center gap-4">
                 <MapPin className="h-5 w-5 text-primary-foreground/70" />
-                <span>Serving the Greater Metro Area</span>
+                <span>Serving Snohomish County</span>
+              </div>
+              <div className="flex items-center gap-4">
+                <a href="https://www.facebook.com/NextLevelDecks" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-primary-foreground/90">
+                  <Facebook className="h-5 w-5 text-primary-foreground/70" />
+                  <span>Next Level Decks</span>
+                </a>
+              </div>
+              <div className="flex items-center gap-4">
+                <a href="https://www.instagram.com/nextlevel.decks" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-primary-foreground/90">
+                  <Instagram className="h-5 w-5 text-primary-foreground/70" />
+                  <span>@Nextlevel.decks</span>
+                </a>
               </div>
             </div>
           </div>
