@@ -107,68 +107,41 @@ const About = () => {
         </div>
       </div>
 
-      {/* Why Choose Us + Next Level Standards */}
+      {/* Why Choose Us — Next Level Standards */}
       <div className="section-padding bg-[hsl(25,20%,10%)]">
         <div className="mx-auto max-w-7xl">
-          <div className="mb-16 text-center">
+          <div className="mb-14 text-center">
             <p className="mb-2 text-sm font-semibold uppercase tracking-[0.15em] text-secondary">
               Why Choose Us
             </p>
             <h2 className="font-display text-3xl font-bold text-white md:text-5xl">
-              Our Promise to You
+              The 'Next Level' Standards
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-white/70">
-              We don't just build to code — we choose to outlast and outperform.
+              Our commitment to quality goes beyond code — every material and method we use is chosen to outlast and outperform.
             </p>
           </div>
 
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {promises.map((p) => (
-              <div key={p.title} className="rounded-lg border border-white/20 bg-white/10 backdrop-blur-sm p-8 text-center shadow-sm">
-                <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-white/20 text-white">
-                  <p.icon className="h-7 w-7" />
-                </div>
-                <h3 className="mb-2 font-display text-lg font-bold text-white">{p.title}</h3>
-                <p className="text-sm text-white/70">{p.description}</p>
-              </div>
-            ))}
-          </div>
-
-          {/* Next Level Standards */}
-          <div className="mt-20">
-            <div className="mb-10 text-center">
-              <div className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-full bg-primary/20 text-primary">
-                <Award className="h-7 w-7" />
-              </div>
-              <h3 className="font-display text-2xl font-bold text-white md:text-3xl">
-                The 'Next Level' Standards
-              </h3>
-              <p className="mx-auto mt-3 max-w-2xl text-white/70">
-                Every build follows our three quality standards — the materials and methods that set us apart from the rest.
-              </p>
-            </div>
-
-            <div className="grid gap-6 md:grid-cols-3">
-              {standards.map((s) => (
-                <Link
-                  key={s.anchor}
-                  to={`/standards#${s.anchor}`}
-                  className="group flex flex-col rounded-lg border border-white/20 bg-white/10 backdrop-blur-sm p-6 transition-all hover:border-primary/50 hover:bg-white/15"
-                >
-                  <div className="mb-3 flex items-center gap-2">
-                    <s.icon className="h-5 w-5 text-primary" />
-                    <span className="rounded-full bg-primary/20 px-2 py-0.5 text-xs font-semibold uppercase tracking-wider text-primary">
-                      {s.label}
-                    </span>
-                  </div>
-                  <h4 className="mb-2 text-lg font-bold text-white">{s.title}</h4>
-                  <p className="mb-4 flex-1 text-sm text-white/70">{s.description}</p>
-                  <span className="inline-flex items-center text-sm font-medium text-primary group-hover:underline">
-                    Read more <ChevronRight className="ml-1 h-4 w-4" />
+          <div className="grid gap-6 md:grid-cols-3">
+            {standards.map((s) => (
+              <Link
+                key={s.anchor}
+                to={`/standards#${s.anchor}`}
+                className="group flex flex-col rounded-lg border border-white/20 bg-white/10 backdrop-blur-sm p-6 transition-all hover:border-primary/50 hover:bg-white/15"
+              >
+                <div className="mb-3 flex items-center gap-2">
+                  <s.icon className="h-5 w-5 text-primary" />
+                  <span className="rounded-full bg-primary/20 px-2 py-0.5 text-xs font-semibold uppercase tracking-wider text-primary">
+                    {s.label}
                   </span>
-                </Link>
-              ))}
-            </div>
+                </div>
+                <h4 className="mb-2 text-lg font-bold text-white">{s.title}</h4>
+                <p className="mb-4 flex-1 text-sm text-white/70">{s.description}</p>
+                <span className="inline-flex items-center text-sm font-medium text-primary group-hover:underline">
+                  Read more <ChevronRight className="ml-1 h-4 w-4" />
+                </span>
+              </Link>
+            ))}
           </div>
         </div>
       </div>
