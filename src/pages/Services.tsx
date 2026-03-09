@@ -2,7 +2,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Calendar, Fence, LayoutDashboard, Home, ShieldCheck, Hammer, ChevronRight } from "lucide-react";
+import { Calendar, Fence, LayoutDashboard, Home, ShieldCheck, Hammer, ChevronRight, Award, Shield, Trees } from "lucide-react";
 import deckImage from "@/assets/deck-showcase.jpg";
 import fenceImage from "@/assets/fence-showcase.jpg";
 import darkWoodBg from "@/assets/dark-wood-bg.jpg";
@@ -176,6 +176,62 @@ const Services = () => {
           </div>
         </section>
       ))}
+
+      {/* Why Choose Us — The 'Next Level' Standard */}
+      <section className="border-t border-border bg-foreground px-6 py-20 text-primary-foreground">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-12 text-center">
+            <Award className="mx-auto mb-4 h-12 w-12 text-primary" />
+            <h2 className="font-display text-3xl font-bold md:text-4xl">
+              Why Choose Next Level?
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-primary-foreground/70">
+              We don't cut corners — we engineer them. Every project is built to
+              our published quality standards so you know exactly what goes into
+              your investment.
+            </p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-3">
+            {[
+              {
+                icon: Shield,
+                title: "G-Tape Flashing on Every Joist",
+                desc: "An invisible barrier that prevents moisture rot and extends your frame's life by decades.",
+              },
+              {
+                icon: Fence,
+                title: "PostMaster Steel Posts",
+                desc: "Galvanized steel cores wrapped in wood for commercial-grade strength with a clean aesthetic.",
+              },
+              {
+                icon: Trees,
+                title: "Dunn Lumber Framing",
+                desc: "Kiln-dried, slow-growth BC timber that stays straight, quiet, and rock-solid for life.",
+              },
+            ].map((item) => (
+              <div
+                key={item.title}
+                className="rounded-lg border border-primary-foreground/10 bg-primary-foreground/5 p-8 text-center"
+              >
+                <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary text-primary-foreground">
+                  <item.icon className="h-6 w-6" />
+                </div>
+                <h3 className="font-display text-xl font-bold">{item.title}</h3>
+                <p className="mt-2 text-sm text-primary-foreground/70">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-10 text-center">
+            <Button variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10" asChild>
+              <Link to="/standards">
+                Read The 'Next Level' Standards <ChevronRight className="ml-1 h-4 w-4" />
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </section>
 
       <Footer />
     </div>
