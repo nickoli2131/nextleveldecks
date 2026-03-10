@@ -45,12 +45,22 @@ const services = [
   },
 ];
 
-
 const About = () => {
   return (
-    <section id="about">
+    <section id="about" className="relative">
+      {/* Shared dark wood background */}
+      <div className="absolute inset-0">
+        <img
+          src={darkWoodBg}
+          alt=""
+          className="h-full w-full object-cover"
+          loading="lazy"
+        />
+        <div className="absolute inset-0 bg-black/40" />
+      </div>
+
       {/* Why Choose Us — Next Level Standards */}
-      <div className="section-padding bg-[hsl(25,20%,10%)]">
+      <div className="relative z-10 section-padding">
         <div className="mx-auto max-w-7xl">
           <div className="mb-14 text-center">
             <p className="mb-2 text-sm font-semibold uppercase tracking-[0.15em] text-secondary">
@@ -88,19 +98,9 @@ const About = () => {
         </div>
       </div>
 
-      {/* What We Do — dark wood banner */}
-      <div className="relative py-20 md:py-28">
-        <div className="absolute inset-0">
-          <img
-            src={darkWoodBg}
-            alt=""
-            className="h-full w-full object-cover"
-            loading="lazy"
-          />
-          <div className="absolute inset-0 bg-black/40" />
-        </div>
-
-        <div className="relative z-10 mx-auto max-w-7xl px-6">
+      {/* What We Do */}
+      <div className="relative z-10 py-20 md:py-28">
+        <div className="mx-auto max-w-7xl px-6">
           <div className="mb-14 text-center">
             <h2 className="font-display text-3xl font-bold text-white md:text-5xl">
               What We Do
@@ -136,7 +136,6 @@ const About = () => {
               </div>
             ))}
           </div>
-
         </div>
       </div>
     </section>
