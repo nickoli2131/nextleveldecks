@@ -153,7 +153,33 @@ const Estimate = () => {
     });
     if (error) {
       toast({ title: "Error saving estimate", variant: "destructive" });
+      return;
     }
+
+    // Send email notifications
+    supabase.functions.invoke("send-notification", {
+      body: {
+        type: "estimate",
+        data: {
+          project_type: projectType,
+          material,
+          length: parseFloat(length) || null,
+          width: parseFloat(width) || null,
+          railing_lf: parseFloat(railingLf) || null,
+          deck_height: projectType === "deck" ? deckHeight : null,
+          fence_height: projectType === "fence" ? fenceHeight : null,
+          needs_removal: needsRemoval === "yes",
+          post_type: projectType === "fence" ? postType : null,
+          small_gates: parseInt(smallGates) || 0,
+          large_gates: parseInt(largeGates) || 0,
+          estimate_low: est.low,
+          estimate_high: est.high,
+          contact_email: contactEmail || null,
+          contact_phone: contactPhone || null,
+          project_phase: projectPhase || null,
+        },
+      },
+    }).catch(console.error);
   };
 
   const resetCalculator = () => {
