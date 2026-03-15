@@ -14,7 +14,96 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      contact_submissions: {
+        Row: {
+          created_at: string
+          email: string | null
+          id: string
+          message: string | null
+          name: string
+          phone: string | null
+        }
+        Insert: {
+          created_at?: string
+          email?: string | null
+          id?: string
+          message?: string | null
+          name: string
+          phone?: string | null
+        }
+        Update: {
+          created_at?: string
+          email?: string | null
+          id?: string
+          message?: string | null
+          name?: string
+          phone?: string | null
+        }
+        Relationships: []
+      }
+      project_estimates: {
+        Row: {
+          contact_email: string | null
+          contact_phone: string | null
+          created_at: string
+          deck_height: string | null
+          estimate_high: number | null
+          estimate_low: number | null
+          fence_height: string | null
+          id: string
+          large_gates: number | null
+          length: number | null
+          material: string
+          needs_removal: boolean | null
+          post_type: string | null
+          project_phase: string | null
+          project_type: string
+          railing_lf: number | null
+          small_gates: number | null
+          width: number | null
+        }
+        Insert: {
+          contact_email?: string | null
+          contact_phone?: string | null
+          created_at?: string
+          deck_height?: string | null
+          estimate_high?: number | null
+          estimate_low?: number | null
+          fence_height?: string | null
+          id?: string
+          large_gates?: number | null
+          length?: number | null
+          material: string
+          needs_removal?: boolean | null
+          post_type?: string | null
+          project_phase?: string | null
+          project_type: string
+          railing_lf?: number | null
+          small_gates?: number | null
+          width?: number | null
+        }
+        Update: {
+          contact_email?: string | null
+          contact_phone?: string | null
+          created_at?: string
+          deck_height?: string | null
+          estimate_high?: number | null
+          estimate_low?: number | null
+          fence_height?: string | null
+          id?: string
+          large_gates?: number | null
+          length?: number | null
+          material?: string
+          needs_removal?: boolean | null
+          post_type?: string | null
+          project_phase?: string | null
+          project_type?: string
+          railing_lf?: number | null
+          small_gates?: number | null
+          width?: number | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
