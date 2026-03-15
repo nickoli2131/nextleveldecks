@@ -46,7 +46,7 @@ serve(async (req) => {
       // Confirmation to customer (only if they provided email)
       if (email) {
         emails.push({
-          from: "Next Level Decks <onboarding@resend.dev>",
+          from: "Next Level Decks <hello@nextlevel-decks.com>",
           to: [email],
           subject: "We received your message – Next Level Decks",
           html: `
