@@ -29,7 +29,7 @@ serve(async (req) => {
 
       // Notification to owner
       emails.push({
-        from: "Next Level Decks <onboarding@resend.dev>",
+        from: "Next Level Decks <hello@nextlevel-decks.com>",
         to: [ownerEmail],
         subject: `New Contact Form Submission from ${name}`,
         html: `
@@ -46,7 +46,7 @@ serve(async (req) => {
       // Confirmation to customer (only if they provided email)
       if (email) {
         emails.push({
-          from: "Next Level Decks <onboarding@resend.dev>",
+          from: "Next Level Decks <hello@nextlevel-decks.com>",
           to: [email],
           subject: "We received your message – Next Level Decks",
           html: `
@@ -88,7 +88,7 @@ serve(async (req) => {
 
       // Notification to owner
       emails.push({
-        from: "Next Level Decks <onboarding@resend.dev>",
+        from: "Next Level Decks <hello@nextlevel-decks.com>",
         to: [ownerEmail],
         subject: `New ${project_type} Estimate – $${estimate_low?.toLocaleString()}–$${estimate_high?.toLocaleString()}`,
         html: `
@@ -104,7 +104,7 @@ serve(async (req) => {
       // Confirmation to customer
       if (contact_email) {
         emails.push({
-          from: "Next Level Decks <onboarding@resend.dev>",
+          from: "Next Level Decks <hello@nextlevel-decks.com>",
           to: [contact_email],
           subject: "Your Project Estimate – Next Level Decks",
           html: `
