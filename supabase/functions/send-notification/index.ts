@@ -88,7 +88,7 @@ serve(async (req) => {
 
       // Notification to owner
       emails.push({
-        from: "Next Level Decks <onboarding@resend.dev>",
+        from: "Next Level Decks <hello@nextlevel-decks.com>",
         to: [ownerEmail],
         subject: `New ${project_type} Estimate – $${estimate_low?.toLocaleString()}–$${estimate_high?.toLocaleString()}`,
         html: `
