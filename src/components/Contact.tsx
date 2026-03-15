@@ -1,7 +1,36 @@
+import { useState } from "react";
 import { Phone, Mail, MapPin, Facebook, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const { toast } = useToast();
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!name.trim()) return;
+    setSubmitting(true);
+    const { error } = await supabase.from("contact_submissions").insert({
+      name: name.trim(),
+      phone: phone.trim() || null,
+      email: email.trim() || null,
+      message: message.trim() || null,
+    });
+    setSubmitting(false);
+    if (error) {
+      toast({ title: "Something went wrong", description: "Please try again or call us directly.", variant: "destructive" });
+    } else {
+      toast({ title: "Message sent!", description: "We'll get back to you within 24 hours." });
+      setName(""); setPhone(""); setEmail(""); setMessage("");
+    }
+  };
+
   return (
     <section id="contact" className="section-padding bg-primary text-primary-foreground">
       <div className="mx-auto max-w-7xl">
