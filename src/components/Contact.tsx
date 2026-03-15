@@ -1,7 +1,36 @@
+import { useState } from "react";
 import { Phone, Mail, MapPin, Facebook, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const { toast } = useToast();
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!name.trim()) return;
+    setSubmitting(true);
+    const { error } = await supabase.from("contact_submissions").insert({
+      name: name.trim(),
+      phone: phone.trim() || null,
+      email: email.trim() || null,
+      message: message.trim() || null,
+    });
+    setSubmitting(false);
+    if (error) {
+      toast({ title: "Something went wrong", description: "Please try again or call us directly.", variant: "destructive" });
+    } else {
+      toast({ title: "Message sent!", description: "We'll get back to you within 24 hours." });
+      setName(""); setPhone(""); setEmail(""); setMessage("");
+    }
+  };
+
   return (
     <section id="contact" className="section-padding bg-primary text-primary-foreground">
       <div className="mx-auto max-w-7xl">
@@ -49,21 +78,36 @@ const Contact = () => {
 
           {/* Right — simple form */}
           <form
-            onSubmit={(e) => e.preventDefault()}
+            onSubmit={handleSubmit}
             className="space-y-5 rounded-lg bg-background p-8 text-foreground shadow-lg"
           >
             <div>
               <label className="mb-1 block text-sm font-medium">Name</label>
               <input
                 type="text"
+                required
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 className="w-full rounded-md border border-input bg-background px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-ring"
                 placeholder="John Doe"
+              />
+            </div>
+            <div>
+              <label className="mb-1 block text-sm font-medium">Email</label>
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="w-full rounded-md border border-input bg-background px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-ring"
+                placeholder="you@example.com"
               />
             </div>
             <div>
               <label className="mb-1 block text-sm font-medium">Phone</label>
               <input
                 type="tel"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
                 className="w-full rounded-md border border-input bg-background px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-ring"
                 placeholder="(555) 000-0000"
               />
@@ -74,12 +118,14 @@ const Contact = () => {
               </label>
               <textarea
                 rows={4}
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
                 className="w-full rounded-md border border-input bg-background px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-ring"
                 placeholder="Tell us about your deck or fence project..."
               />
             </div>
-            <Button type="submit" className="w-full" size="lg">
-              Request Free Quote
+            <Button type="submit" className="w-full" size="lg" disabled={submitting}>
+              {submitting ? "Sending..." : "Request Free Quote"}
             </Button>
           </form>
         </div>
