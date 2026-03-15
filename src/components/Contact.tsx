@@ -78,21 +78,36 @@ const Contact = () => {
 
           {/* Right — simple form */}
           <form
-            onSubmit={(e) => e.preventDefault()}
+            onSubmit={handleSubmit}
             className="space-y-5 rounded-lg bg-background p-8 text-foreground shadow-lg"
           >
             <div>
               <label className="mb-1 block text-sm font-medium">Name</label>
               <input
                 type="text"
+                required
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 className="w-full rounded-md border border-input bg-background px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-ring"
                 placeholder="John Doe"
+              />
+            </div>
+            <div>
+              <label className="mb-1 block text-sm font-medium">Email</label>
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="w-full rounded-md border border-input bg-background px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-ring"
+                placeholder="you@example.com"
               />
             </div>
             <div>
               <label className="mb-1 block text-sm font-medium">Phone</label>
               <input
                 type="tel"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
                 className="w-full rounded-md border border-input bg-background px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-ring"
                 placeholder="(555) 000-0000"
               />
@@ -103,12 +118,14 @@ const Contact = () => {
               </label>
               <textarea
                 rows={4}
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
                 className="w-full rounded-md border border-input bg-background px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-ring"
                 placeholder="Tell us about your deck or fence project..."
               />
             </div>
-            <Button type="submit" className="w-full" size="lg">
-              Request Free Quote
+            <Button type="submit" className="w-full" size="lg" disabled={submitting}>
+              {submitting ? "Sending..." : "Request Free Quote"}
             </Button>
           </form>
         </div>

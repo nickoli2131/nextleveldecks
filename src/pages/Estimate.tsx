@@ -116,14 +116,43 @@ const Estimate = () => {
   };
 
   const navigate = useNavigate();
+  const { toast } = useToast();
 
-  const handleLeadSubmit = () => {
+  const handleLeadSubmit = async () => {
     if (projectPhase === "ready") {
+      // Save estimate before navigating
+      await saveEstimate();
       navigate("/schedule");
       return;
     }
     if (contactEmail) {
+      await saveEstimate();
       setLeadSubmitted(true);
+    }
+  };
+
+  const saveEstimate = async () => {
+    const est = calculateEstimate();
+    const { error } = await supabase.from("project_estimates").insert({
+      project_type: projectType,
+      material,
+      length: parseFloat(length) || null,
+      width: parseFloat(width) || null,
+      railing_lf: parseFloat(railingLf) || null,
+      deck_height: projectType === "deck" ? deckHeight : null,
+      fence_height: projectType === "fence" ? fenceHeight : null,
+      needs_removal: needsRemoval === "yes",
+      post_type: projectType === "fence" ? postType : null,
+      small_gates: parseInt(smallGates) || 0,
+      large_gates: parseInt(largeGates) || 0,
+      estimate_low: est.low,
+      estimate_high: est.high,
+      contact_email: contactEmail || null,
+      contact_phone: contactPhone || null,
+      project_phase: projectPhase || null,
+    });
+    if (error) {
+      toast({ title: "Error saving estimate", variant: "destructive" });
     }
   };
 
