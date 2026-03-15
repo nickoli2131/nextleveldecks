@@ -22,13 +22,23 @@ const Contact = () => {
       email: email.trim() || null,
       message: message.trim() || null,
     });
-    setSubmitting(false);
     if (error) {
+      setSubmitting(false);
       toast({ title: "Something went wrong", description: "Please try again or call us directly.", variant: "destructive" });
-    } else {
-      toast({ title: "Message sent!", description: "We'll get back to you within 24 hours." });
-      setName(""); setPhone(""); setEmail(""); setMessage("");
+      return;
     }
+
+    // Send email notifications (fire and forget)
+    supabase.functions.invoke("send-notification", {
+      body: {
+        type: "contact",
+        data: { name: name.trim(), phone: phone.trim(), email: email.trim(), message: message.trim() },
+      },
+    }).catch(console.error);
+
+    setSubmitting(false);
+    toast({ title: "Message sent!", description: "We'll get back to you within 24 hours." });
+    setName(""); setPhone(""); setEmail(""); setMessage("");
   };
 
   return (
