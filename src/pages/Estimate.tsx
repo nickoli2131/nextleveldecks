@@ -14,16 +14,16 @@ import Footer from "@/components/Footer";
 type ProjectType = "deck" | "fence" | "";
 type Material = string;
 
-const FRAMING_PER_SQFT = 50;
+const FRAMING_PER_SQFT = 43;
 
 const DECK_MATERIALS = [
-  { value: "composite-value", label: "Composite – Value", deckingLow: 24, deckingHigh: 28, railingLow: 110, railingHigh: 130 },
-  { value: "composite-premium", label: "Composite – Premium", deckingLow: 30, deckingHigh: 36, railingLow: 140, railingHigh: 165 },
-  { value: "composite-luxury", label: "Composite – Luxury", deckingLow: 38, deckingHigh: 42, railingLow: 170, railingHigh: 195 },
+  { value: "composite-value", label: "Composite – Value", deckingLow: 21, deckingHigh: 24, railingLow: 95, railingHigh: 113 },
+  { value: "composite-premium", label: "Composite – Premium", deckingLow: 26, deckingHigh: 31, railingLow: 121, railingHigh: 143 },
+  { value: "composite-luxury", label: "Composite – Luxury", deckingLow: 33, deckingHigh: 36, railingLow: 147, railingHigh: 169 },
 ];
 
 const FENCE_MATERIALS = [
-  { value: "cedar-fence", label: "Cedar", pricePerLinFt: 30 },
+  { value: "cedar-fence", label: "Cedar", pricePerLinFt: 26 },
 ];
 
 const FENCE_HEIGHTS = [
@@ -32,11 +32,11 @@ const FENCE_HEIGHTS = [
   { value: "8", label: "8 ft", multiplier: 1.3 },
 ];
 
-const FENCE_REMOVAL_PER_LF = 12.5;
-const METAL_POST_COST = 80;
-const WOOD_POST_COST = 42;
-const SMALL_GATE_COST = 640;
-const LARGE_GATE_COST = 720;
+const FENCE_REMOVAL_PER_LF = 11;
+const METAL_POST_COST = 69;
+const WOOD_POST_COST = 36;
+const SMALL_GATE_COST = 555;
+const LARGE_GATE_COST = 624;
 
 const DECK_HEIGHTS = [
   { value: "below-3", label: "Below 3'", multiplier: 1.0 },
