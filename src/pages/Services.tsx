@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { Calendar, Fence, LayoutDashboard, Home, ShieldCheck, Hammer, ChevronRight } from "lucide-react";
 import deckImage from "@/assets/deck-showcase.jpg";
 import fenceImage from "@/assets/fence-showcase.jpg";
+import cedarFenceImage from "@/assets/cedar-fence-1.jpg";
 import darkWoodBg from "@/assets/dark-wood-bg.jpg";
 
 const services = [
