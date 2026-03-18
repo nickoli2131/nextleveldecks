@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { Calendar, Fence, LayoutDashboard, Home, ShieldCheck, Hammer, ChevronRight } from "lucide-react";
 import deckImage from "@/assets/deck-showcase.jpg";
 import fenceImage from "@/assets/fence-showcase.jpg";
+import cedarFenceImage from "@/assets/cedar-fence-1.jpg";
 import darkWoodBg from "@/assets/dark-wood-bg.jpg";
 
 const services = [
@@ -29,7 +30,7 @@ const services = [
     icon: Fence,
     title: "Cedar Fencing",
     tagline: "Privacy, beauty, and natural durability.",
-    image: fenceImage,
+    image: cedarFenceImage,
     description:
       "Our cedar fences are crafted from premium Western Red Cedar, chosen for its natural resistance to rot and insects. We build every fence with the same structural integrity we put into our decks — because a fence should last as long as the home it protects.",
     features: [
