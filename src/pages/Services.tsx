@@ -30,7 +30,7 @@ const services = [
     icon: Fence,
     title: "Cedar Fencing",
     tagline: "Privacy, beauty, and natural durability.",
-    image: fenceImage,
+    image: cedarFenceImage,
     description:
       "Our cedar fences are crafted from premium Western Red Cedar, chosen for its natural resistance to rot and insects. We build every fence with the same structural integrity we put into our decks — because a fence should last as long as the home it protects.",
     features: [
