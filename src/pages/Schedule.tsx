@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-const SCHEDULING_URL = "https://calendar.app.google/bMkThrjCiY4ZXama8";
+const SCHEDULING_URL = "https://calendar.google.com/calendar/appointments/schedules/AcZssZ0sCpFq6nIOIRkTLoudfNK6Mwiw5tf_WBrMmfAdnSciyBFAxbpcVjhVbUkk2aGRZv2sMLsmez8X?gv=true";
 
 const ScrollToTop = () => {
   useEffect(() => {
