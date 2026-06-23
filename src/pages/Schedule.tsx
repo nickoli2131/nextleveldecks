@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-const SCHEDULING_URL = "https://calendar.app.google/bMkThrjCiY4ZXama8";
+const SCHEDULING_URL = "https://calendar.google.com/calendar/appointments/schedules/AcZssZ0sCpFq6nIOIRkTLoudfNK6Mwiw5tf_WBrMmfAdnSciyBFAxbpcVjhVbUkk2aGRZv2sMLsmez8X?gv=true";
 
 const ScrollToTop = () => {
   useEffect(() => {
@@ -78,21 +78,17 @@ const Schedule = () => {
             ))}
           </div>
 
-          {/* Google Calendar scheduling area */}
+          {/* Google Calendar appointment scheduling embed */}
           {SCHEDULING_URL ? (
-            <div className="flex flex-col items-center justify-center rounded-lg border border-border bg-card p-12 text-center shadow-sm">
-              <Calendar className="mb-4 h-12 w-12 text-primary" />
-              <h3 className="mb-2 font-display text-xl font-bold text-foreground">
-                Book Your Free Consultation
-              </h3>
-              <p className="mb-6 max-w-md text-muted-foreground">
-                Choose a day and time that works best for you. We&apos;ll send a confirmation with everything you need.
-              </p>
-              <Button asChild size="lg">
-                <a href={SCHEDULING_URL} target="_blank" rel="noopener noreferrer">
-                  Open Scheduling Calendar
-                </a>
-              </Button>
+            <div className="overflow-hidden rounded-lg border border-border bg-card shadow-sm">
+              <iframe
+                src={SCHEDULING_URL}
+                style={{ border: 0 }}
+                width="100%"
+                height="600"
+                frameBorder="0"
+                title="Book a free consultation with Next Level Decks and Fences"
+              />
             </div>
           ) : (
             <div className="flex flex-col items-center justify-center rounded-lg border-2 border-dashed border-border bg-card p-16 text-center">
