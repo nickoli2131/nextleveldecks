@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-const CALENDLY_URL = "https://calendly.com/nick-nextlevel-decks/30min?text_color=000000";
+const SCHEDULING_URL = "https://calendar.app.google/bMkThrjCiY4ZXama8";
 
 const ScrollToTop = () => {
   useEffect(() => {
@@ -14,27 +14,6 @@ const ScrollToTop = () => {
   return null;
 };
 
-const CalendlyEmbed = ({ url }: { url: string }) => {
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://assets.calendly.com/assets/external/widget.js";
-    script.async = true;
-    document.body.appendChild(script);
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
-
-  return (
-    <div className="overflow-hidden rounded-lg border border-border bg-card shadow-sm">
-      <div
-        className="calendly-inline-widget"
-        data-url={url}
-        style={{ minWidth: "320px", height: "700px" }}
-      />
-    </div>
-  );
-};
 
 const Schedule = () => {
   return (
@@ -99,9 +78,22 @@ const Schedule = () => {
             ))}
           </div>
 
-          {/* Calendly embed area */}
-          {CALENDLY_URL ? (
-            <CalendlyEmbed url={CALENDLY_URL} />
+          {/* Google Calendar scheduling area */}
+          {SCHEDULING_URL ? (
+            <div className="flex flex-col items-center justify-center rounded-lg border border-border bg-card p-12 text-center shadow-sm">
+              <Calendar className="mb-4 h-12 w-12 text-primary" />
+              <h3 className="mb-2 font-display text-xl font-bold text-foreground">
+                Book Your Free Consultation
+              </h3>
+              <p className="mb-6 max-w-md text-muted-foreground">
+                Choose a day and time that works best for you. We&apos;ll send a confirmation with everything you need.
+              </p>
+              <Button asChild size="lg">
+                <a href={SCHEDULING_URL} target="_blank" rel="noopener noreferrer">
+                  Open Scheduling Calendar
+                </a>
+              </Button>
+            </div>
           ) : (
             <div className="flex flex-col items-center justify-center rounded-lg border-2 border-dashed border-border bg-card p-16 text-center">
               <Calendar className="mb-4 h-16 w-16 text-muted-foreground/40" />
